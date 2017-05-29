@@ -469,11 +469,12 @@ Partial Class Main
         '
         'IDBox
         '
+        Me.IDBox.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite
         Me.IDBox.Location = New System.Drawing.Point(37, 16)
         Me.IDBox.Mask = "9999999999"
         Me.IDBox.Name = "IDBox"
         Me.IDBox.Size = New System.Drawing.Size(79, 20)
-        Me.IDBox.TabIndex = 17
+        Me.IDBox.TabIndex = 0
         Me.IDBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Main

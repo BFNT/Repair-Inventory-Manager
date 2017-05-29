@@ -24,13 +24,16 @@ Partial Class AddMachine
     Private Sub InitializeComponent()
         Me.SuspendLayout()
         '
-        'AddMachine_2
+        'AddMachine
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 261)
-        Me.Name = "AddMachine_2"
-        Me.Text = "AddMachine_2"
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
+        Me.Name = "AddMachine"
+        Me.ShowIcon = False
+        Me.Text = "Ajouter un ordinateur"
         Me.ResumeLayout(False)
 
     End Sub

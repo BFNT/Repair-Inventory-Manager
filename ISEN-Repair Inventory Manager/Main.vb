@@ -1,8 +1,5 @@
-﻿Imports System.ComponentModel
-Imports System.Data.SQLite
+﻿Imports System.Data.SQLite
 Public Class Main
-    Private idSelected As Boolean = False
-
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ListAllInv()
 
@@ -17,6 +14,33 @@ Public Class Main
         If HWCheck.Checked And OSCheck.Checked Then DrvCheck.Enabled = True Else DrvCheck.Enabled = False
         If HWCheck.Checked Then OSCheck.Enabled = True Else OSCheck.Enabled = False
     End Sub
+
+    Public Function RequestToSQLite(SQLiteCommand As String) As DataTable
+        Dim dt As DataTable = Nothing
+        Dim ds As New DataSet
+
+        Try
+            StatusLabel.Text = "Récupération des données depuis la base SQLite..."
+            Using con As New SQLiteConnection("Data Source=db.sqlite")
+                Using cmd As New SQLiteCommand(SQLiteCommand, con)
+                    con.Open()
+                    Using da As New SQLiteDataAdapter(cmd)
+                        da.Fill(ds)
+                        dt = ds.Tables(0)
+                    End Using
+                End Using
+            End Using
+
+            Return dt
+
+            StatusLabel.Text = "Récupération avec succés de la base SQLite."
+        Catch ex As Exception
+            StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
+            MsgBox(ex.Message)
+        End Try
+
+        Return Nothing
+    End Function
 
     Private Sub ListAllInv()
         StatusLabel.Text = "Récupération des données depuis la base SQLite..."
@@ -89,7 +113,6 @@ Public Class Main
     End Sub
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
-        Me.Hide()
         Dim aboutForm As About
         aboutForm = New About()
         aboutForm.Show()
@@ -101,13 +124,9 @@ Public Class Main
         addMachineForm = New AddMachine()
         addMachineForm.Show()
         addMachineForm = Nothing
-        Dim addMachine_IdForm As AddMachine_ID
-        addMachine_IdForm = New AddMachine_ID()
-        addMachine_IdForm.Show()
-        addMachine_IdForm = Nothing
     End Sub
 
     Private Sub IDBox_Click(sender As Object, e As EventArgs)
-        If idSelected Then IDBox.Text = ""
+        IDBox.SelectAll()
     End Sub
 End Class
