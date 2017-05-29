@@ -9,10 +9,10 @@ Public Class Main
         If HWCheck.Checked And OSCheck.Checked And DrvCheck.Checked And ActivateCheck.Checked Then SoftCheck.Enabled = True Else SoftCheck.Enabled = False
         If HWCheck.Checked And OSCheck.Checked And DrvCheck.Checked Then
             ActivateCheck.Enabled = True
-            OSChoice.Enabled = True
+            OS.Enabled = True
         Else
             ActivateCheck.Enabled = False
-            OSChoice.Enabled = False
+            OS.Enabled = False
         End If
         If HWCheck.Checked And OSCheck.Checked Then DrvCheck.Enabled = True Else DrvCheck.Enabled = False
         If HWCheck.Checked Then OSCheck.Enabled = True Else OSCheck.Enabled = False
@@ -20,8 +20,8 @@ Public Class Main
 
     Private Sub ListAllInv()
         StatusLabel.Text = "Récupération des données depuis la base SQLite..."
-        Dim connectStr As String = "Data Source=Northwind.sqlite"
-        Dim SQLiteCommand As String = "SELECT..."
+        Dim connectStr As String = "Data Source=db.sqlite"
+        Dim SQLiteCommand As String = "SELECT name FROM computers_desc;"
         Dim dt As DataTable = Nothing
         Dim ds As New DataSet
 
@@ -40,6 +40,8 @@ Public Class Main
             InvList.DisplayMember = "ID"
             InvList.DataSource = dt
 
+            StatusLabel.Text = "Récupération avec succés de la base SQLite."
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -54,7 +56,7 @@ Public Class Main
     End Sub
 
     Public Sub DisplayInvList(entriesId As String)
-        Dim connectStr As String = "Data Source=Northwind.sqlite"
+        Dim connectStr As String = "Data Source=db.sqlite"
         Dim SQLiteCommand As String = "SELECT * FROM Inventory WHERE EntriesID=" & entriesId
         Dim dt As DataTable = Nothing
         Dim ds As New DataSet
@@ -94,23 +96,15 @@ Public Class Main
         aboutForm = Nothing
     End Sub
 
-    Private Sub IDBox_Click(sender As Object, e As EventArgs) Handles IDBox.Click
+    Private Sub AjouterUnPCToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AjouterUnPCToolStripMenuItem.Click
+        Me.Hide()
+        Dim addMachineForm As AddMachine
+        addMachineForm = New AddMachine()
+        addMachineForm.Show()
+        addMachineForm = Nothing
+    End Sub
+
+    Private Sub IDBox_Click(sender As Object, e As EventArgs) 
         If idSelected Then IDBox.Text = ""
-    End Sub
-
-    Private Sub ImporterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImporterToolStripMenuItem.Click
-        OpenFileDialog1.ShowDialog()
-    End Sub
-
-    Private Sub ExporterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExporterToolStripMenuItem.Click
-        SaveFileDialog1.ShowDialog()
-    End Sub
-
-    Private Sub OpenFileDialog1_FileOk(sender As Object, e As CancelEventArgs) Handles OpenFileDialog1.FileOk
-
-    End Sub
-
-    Private Sub SaveFileDialog1_FileOk(sender As Object, e As CancelEventArgs) Handles SaveFileDialog1.FileOk
-
     End Sub
 End Class

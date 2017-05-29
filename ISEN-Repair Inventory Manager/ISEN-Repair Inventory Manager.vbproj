@@ -32,7 +32,7 @@
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\..\Mes Builds\ISEN-Repair Inventory Manager\</OutputPath>
     <DocumentationFile>ISEN-Repair Inventory Manager.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
@@ -50,6 +50,12 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>InvManLogo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>JCS.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -92,6 +98,12 @@
     <Compile Include="AddMachine.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AddMachine_2.Designer.vb">
+      <DependentUpon>AddMachine_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddMachine_2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +137,12 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddMachine.resx">
+      <DependentUpon>AddMachine.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddMachine_2.resx">
+      <DependentUpon>AddMachine_2.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +157,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="JCS.pfx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

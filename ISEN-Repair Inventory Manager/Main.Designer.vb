@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Main
     Inherits System.Windows.Forms.Form
 
     'Form remplace la méthode Dispose pour nettoyer la liste des composants.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Main
     'REMARQUE : la procédure suivante est requise par le Concepteur Windows Form
     'Elle peut être modifiée à l'aide du Concepteur Windows Form.  
     'Ne la modifiez pas à l'aide de l'éditeur de code.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -28,9 +28,6 @@ Partial Class Main
         Me.AjouterUnPCToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.QuitterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BackUpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImporterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExporterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
@@ -40,7 +37,6 @@ Partial Class Main
         Me.SendOutButton = New System.Windows.Forms.Button()
         Me.TrashButton = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.IDBox = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -63,14 +59,12 @@ Partial Class Main
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Mem = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.OSChoice = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.OS = New System.Windows.Forms.TextBox()
+        Me.Arch = New System.Windows.Forms.TextBox()
         Me.EditButton = New System.Windows.Forms.Button()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.IDBox = New System.Windows.Forms.MaskedTextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -80,7 +74,7 @@ Partial Class Main
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FichierToolStripMenuItem, Me.BackUpToolStripMenuItem, Me.ToolStripMenuItem1})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FichierToolStripMenuItem, Me.ToolStripMenuItem1})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(875, 24)
@@ -97,38 +91,19 @@ Partial Class Main
         'AjouterUnPCToolStripMenuItem
         '
         Me.AjouterUnPCToolStripMenuItem.Name = "AjouterUnPCToolStripMenuItem"
-        Me.AjouterUnPCToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.AjouterUnPCToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AjouterUnPCToolStripMenuItem.Text = "Ajouter un PC"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(145, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
         '
         'QuitterToolStripMenuItem
         '
         Me.QuitterToolStripMenuItem.Name = "QuitterToolStripMenuItem"
-        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.QuitterToolStripMenuItem.Text = "Quitter"
-        '
-        'BackUpToolStripMenuItem
-        '
-        Me.BackUpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImporterToolStripMenuItem, Me.ExporterToolStripMenuItem})
-        Me.BackUpToolStripMenuItem.Name = "BackUpToolStripMenuItem"
-        Me.BackUpToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
-        Me.BackUpToolStripMenuItem.Text = "BackUp"
-        '
-        'ImporterToolStripMenuItem
-        '
-        Me.ImporterToolStripMenuItem.Name = "ImporterToolStripMenuItem"
-        Me.ImporterToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ImporterToolStripMenuItem.Text = "Importer"
-        '
-        'ExporterToolStripMenuItem
-        '
-        Me.ExporterToolStripMenuItem.Name = "ExporterToolStripMenuItem"
-        Me.ExporterToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ExporterToolStripMenuItem.Text = "Exporter"
         '
         'ToolStripMenuItem1
         '
@@ -207,15 +182,6 @@ Partial Class Main
         Me.Label1.Size = New System.Drawing.Size(24, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "ID :"
-        '
-        'IDBox
-        '
-        Me.IDBox.Location = New System.Drawing.Point(27, 16)
-        Me.IDBox.MaxLength = 10
-        Me.IDBox.Name = "IDBox"
-        Me.IDBox.Size = New System.Drawing.Size(89, 20)
-        Me.IDBox.TabIndex = 0
-        Me.IDBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label2
         '
@@ -308,6 +274,7 @@ Partial Class Main
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.IDBox)
         Me.GroupBox2.Controls.Add(Me.TextBox4)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.TypeComBox)
@@ -321,7 +288,6 @@ Partial Class Main
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Controls.Add(Me.IDBox)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Location = New System.Drawing.Point(355, 28)
         Me.GroupBox2.Name = "GroupBox2"
@@ -440,36 +406,26 @@ Partial Class Main
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(402, 22)
+        Me.Label7.Location = New System.Drawing.Point(248, 21)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(37, 13)
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "RAM :"
         '
-        'TextBox1
+        'Mem
         '
-        Me.TextBox1.Location = New System.Drawing.Point(445, 18)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(57, 20)
-        Me.TextBox1.TabIndex = 10
-        Me.TextBox1.TabStop = False
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(188, 18)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(148, 20)
-        Me.TextBox2.TabIndex = 11
-        Me.TextBox2.TabStop = False
+        Me.Mem.Location = New System.Drawing.Point(291, 17)
+        Me.Mem.Name = "Mem"
+        Me.Mem.ReadOnly = True
+        Me.Mem.Size = New System.Drawing.Size(57, 20)
+        Me.Mem.TabIndex = 10
+        Me.Mem.TabStop = False
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.OSChoice)
-        Me.GroupBox3.Controls.Add(Me.TextBox3)
-        Me.GroupBox3.Controls.Add(Me.TextBox2)
-        Me.GroupBox3.Controls.Add(Me.TextBox1)
+        Me.GroupBox3.Controls.Add(Me.OS)
+        Me.GroupBox3.Controls.Add(Me.Arch)
+        Me.GroupBox3.Controls.Add(Me.Mem)
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.ProgressBar1)
@@ -485,21 +441,21 @@ Partial Class Main
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Avancement"
         '
-        'OSChoice
+        'OS
         '
-        Me.OSChoice.Location = New System.Drawing.Point(57, 41)
-        Me.OSChoice.Name = "OSChoice"
-        Me.OSChoice.ReadOnly = True
-        Me.OSChoice.Size = New System.Drawing.Size(59, 20)
-        Me.OSChoice.TabIndex = 13
+        Me.OS.Location = New System.Drawing.Point(57, 41)
+        Me.OS.Name = "OS"
+        Me.OS.ReadOnly = True
+        Me.OS.Size = New System.Drawing.Size(59, 20)
+        Me.OS.TabIndex = 13
         '
-        'TextBox3
+        'Arch
         '
-        Me.TextBox3.Location = New System.Drawing.Point(342, 19)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.ReadOnly = True
-        Me.TextBox3.Size = New System.Drawing.Size(54, 20)
-        Me.TextBox3.TabIndex = 12
+        Me.Arch.Location = New System.Drawing.Point(188, 18)
+        Me.Arch.Name = "Arch"
+        Me.Arch.ReadOnly = True
+        Me.Arch.Size = New System.Drawing.Size(54, 20)
+        Me.Arch.TabIndex = 12
         '
         'EditButton
         '
@@ -511,16 +467,14 @@ Partial Class Main
         Me.EditButton.Text = "Modifier"
         Me.EditButton.UseVisualStyleBackColor = True
         '
-        'OpenFileDialog1
+        'IDBox
         '
-        Me.OpenFileDialog1.FileName = "db.sqlite"
-        Me.OpenFileDialog1.Title = "Ouvrir un fichier"
-        '
-        'SaveFileDialog1
-        '
-        Me.SaveFileDialog1.CheckFileExists = True
-        Me.SaveFileDialog1.FileName = "db.sqlite"
-        Me.SaveFileDialog1.Title = "Enregistrer un fichier"
+        Me.IDBox.Location = New System.Drawing.Point(37, 16)
+        Me.IDBox.Mask = "9999999999"
+        Me.IDBox.Name = "IDBox"
+        Me.IDBox.Size = New System.Drawing.Size(79, 20)
+        Me.IDBox.TabIndex = 17
+        Me.IDBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Main
         '
@@ -537,6 +491,7 @@ Partial Class Main
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.MaximizeBox = False
         Me.Name = "Main"
         Me.Text = "ISEN-Repair Inventory Manager"
         Me.MenuStrip1.ResumeLayout(False)
@@ -562,14 +517,10 @@ Partial Class Main
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents InvSearchBar As TextBox
     Friend WithEvents InvList As ListBox
-    Friend WithEvents BackUpToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ImporterToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ExporterToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SendOutButton As Button
     Friend WithEvents TrashButton As Button
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents Label1 As Label
-    Friend WithEvents IDBox As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
@@ -588,18 +539,16 @@ Partial Class Main
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Mem As TextBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents TypeComBox As TextBox
     Friend WithEvents EtatBox As TextBox
-    Friend WithEvents OSChoice As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents OS As TextBox
+    Friend WithEvents Arch As TextBox
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents EditButton As Button
     Friend WithEvents AjouterUnPCToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents IDBox As MaskedTextBox
 End Class
