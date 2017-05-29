@@ -92,16 +92,16 @@
     <Compile Include="About.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AddMachine_ID.Designer.vb">
+      <DependentUpon>AddMachine_ID.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddMachine_ID.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AddMachine.Designer.vb">
       <DependentUpon>AddMachine.vb</DependentUpon>
     </Compile>
     <Compile Include="AddMachine.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddMachine_2.Designer.vb">
-      <DependentUpon>AddMachine_2.vb</DependentUpon>
-    </Compile>
-    <Compile Include="AddMachine_2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.vb">
@@ -137,11 +137,11 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddMachine_ID.resx">
+      <DependentUpon>AddMachine_ID.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddMachine.resx">
       <DependentUpon>AddMachine.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddMachine_2.resx">
-      <DependentUpon>AddMachine_2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>

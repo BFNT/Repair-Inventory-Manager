@@ -1,9 +1,5 @@
 ﻿Public Class AddMachine
-    Private Sub AddMachine_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
-        Me.Close()
+    Private Sub AddMachine_2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim newID As Integer
     End Sub
 End Class

@@ -97,14 +97,17 @@ Public Class Main
     End Sub
 
     Private Sub AjouterUnPCToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AjouterUnPCToolStripMenuItem.Click
-        Me.Hide()
         Dim addMachineForm As AddMachine
         addMachineForm = New AddMachine()
         addMachineForm.Show()
         addMachineForm = Nothing
+        Dim addMachine_IdForm As AddMachine_ID
+        addMachine_IdForm = New AddMachine_ID()
+        addMachine_IdForm.Show()
+        addMachine_IdForm = Nothing
     End Sub
 
-    Private Sub IDBox_Click(sender As Object, e As EventArgs) 
+    Private Sub IDBox_Click(sender As Object, e As EventArgs)
         If idSelected Then IDBox.Text = ""
     End Sub
 End Class
