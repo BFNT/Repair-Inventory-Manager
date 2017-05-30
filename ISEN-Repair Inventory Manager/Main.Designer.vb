@@ -35,7 +35,6 @@ Partial Class Main
         Me.TrashButton = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.NameBox = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -47,7 +46,6 @@ Partial Class Main
         Me.IDBox = New System.Windows.Forms.MaskedTextBox()
         Me.GivenByBox = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TypeComBox = New System.Windows.Forms.TextBox()
         Me.EtatBox = New System.Windows.Forms.TextBox()
         Me.HWCheck = New System.Windows.Forms.CheckBox()
         Me.OSCheck = New System.Windows.Forms.CheckBox()
@@ -57,10 +55,10 @@ Partial Class Main
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Mem = New System.Windows.Forms.TextBox()
+        Me.MemBox = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.OS = New System.Windows.Forms.TextBox()
-        Me.Arch = New System.Windows.Forms.TextBox()
+        Me.OSBox = New System.Windows.Forms.TextBox()
+        Me.ArchBox = New System.Windows.Forms.TextBox()
         Me.EditButton = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -171,23 +169,14 @@ Partial Class Main
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Nom :"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(7, 47)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(37, 13)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Type :"
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(7, 80)
+        Me.Label4.Location = New System.Drawing.Point(58, 80)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(79, 13)
+        Me.Label4.Size = New System.Drawing.Size(45, 13)
         Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Commentaires :"
+        Me.Label4.Text = "Détails :"
         '
         'NameBox
         '
@@ -201,7 +190,7 @@ Partial Class Main
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(262, 47)
+        Me.Label5.Location = New System.Drawing.Point(7, 50)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(32, 13)
         Me.Label5.TabIndex = 6
@@ -209,12 +198,12 @@ Partial Class Main
         '
         'DetailsBox
         '
-        Me.DetailsBox.Location = New System.Drawing.Point(92, 77)
+        Me.DetailsBox.Location = New System.Drawing.Point(109, 77)
         Me.DetailsBox.Multiline = True
         Me.DetailsBox.Name = "DetailsBox"
         Me.DetailsBox.ReadOnly = True
         Me.DetailsBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.DetailsBox.Size = New System.Drawing.Size(400, 84)
+        Me.DetailsBox.Size = New System.Drawing.Size(383, 84)
         Me.DetailsBox.TabIndex = 9
         Me.DetailsBox.TabStop = False
         '
@@ -224,15 +213,15 @@ Partial Class Main
         Me.EmpruntCheckBox.Enabled = False
         Me.EmpruntCheckBox.Location = New System.Drawing.Point(5, 168)
         Me.EmpruntCheckBox.Name = "EmpruntCheckBox"
-        Me.EmpruntCheckBox.Size = New System.Drawing.Size(101, 17)
+        Me.EmpruntCheckBox.Size = New System.Drawing.Size(98, 17)
         Me.EmpruntCheckBox.TabIndex = 10
         Me.EmpruntCheckBox.TabStop = False
-        Me.EmpruntCheckBox.Text = "Emprunter  par :"
+        Me.EmpruntCheckBox.Text = "Emprunté  par :"
         Me.EmpruntCheckBox.UseVisualStyleBackColor = True
         '
         'EmprunterName
         '
-        Me.EmprunterName.Location = New System.Drawing.Point(106, 166)
+        Me.EmprunterName.Location = New System.Drawing.Point(109, 166)
         Me.EmprunterName.Name = "EmprunterName"
         Me.EmprunterName.ReadOnly = True
         Me.EmprunterName.Size = New System.Drawing.Size(150, 20)
@@ -243,7 +232,7 @@ Partial Class Main
         '
         Me.SerieCheckBox.AutoSize = True
         Me.SerieCheckBox.Enabled = False
-        Me.SerieCheckBox.Location = New System.Drawing.Point(433, 46)
+        Me.SerieCheckBox.Location = New System.Drawing.Point(433, 49)
         Me.SerieCheckBox.Name = "SerieCheckBox"
         Me.SerieCheckBox.Size = New System.Drawing.Size(59, 17)
         Me.SerieCheckBox.TabIndex = 12
@@ -256,7 +245,6 @@ Partial Class Main
         Me.GroupBox2.Controls.Add(Me.IDBox)
         Me.GroupBox2.Controls.Add(Me.GivenByBox)
         Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Controls.Add(Me.TypeComBox)
         Me.GroupBox2.Controls.Add(Me.EtatBox)
         Me.GroupBox2.Controls.Add(Me.SerieCheckBox)
         Me.GroupBox2.Controls.Add(Me.EmprunterName)
@@ -265,7 +253,6 @@ Partial Class Main
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.NameBox)
         Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Location = New System.Drawing.Point(355, 28)
@@ -287,34 +274,25 @@ Partial Class Main
         '
         'GivenByBox
         '
-        Me.GivenByBox.Location = New System.Drawing.Point(339, 166)
+        Me.GivenByBox.Location = New System.Drawing.Point(251, 47)
         Me.GivenByBox.Name = "GivenByBox"
         Me.GivenByBox.ReadOnly = True
-        Me.GivenByBox.Size = New System.Drawing.Size(153, 20)
+        Me.GivenByBox.Size = New System.Drawing.Size(176, 20)
         Me.GivenByBox.TabIndex = 16
         Me.GivenByBox.TabStop = False
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(262, 169)
+        Me.Label8.Location = New System.Drawing.Point(174, 50)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(71, 13)
         Me.Label8.TabIndex = 15
         Me.Label8.Text = "Provenance :"
         '
-        'TypeComBox
-        '
-        Me.TypeComBox.Location = New System.Drawing.Point(45, 44)
-        Me.TypeComBox.Name = "TypeComBox"
-        Me.TypeComBox.ReadOnly = True
-        Me.TypeComBox.Size = New System.Drawing.Size(211, 20)
-        Me.TypeComBox.TabIndex = 14
-        Me.TypeComBox.TabStop = False
-        '
         'EtatBox
         '
-        Me.EtatBox.Location = New System.Drawing.Point(296, 44)
+        Me.EtatBox.Location = New System.Drawing.Point(37, 47)
         Me.EtatBox.Name = "EtatBox"
         Me.EtatBox.ReadOnly = True
         Me.EtatBox.Size = New System.Drawing.Size(131, 20)
@@ -401,20 +379,20 @@ Partial Class Main
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "RAM :"
         '
-        'Mem
+        'MemBox
         '
-        Me.Mem.Location = New System.Drawing.Point(291, 17)
-        Me.Mem.Name = "Mem"
-        Me.Mem.ReadOnly = True
-        Me.Mem.Size = New System.Drawing.Size(57, 20)
-        Me.Mem.TabIndex = 10
-        Me.Mem.TabStop = False
+        Me.MemBox.Location = New System.Drawing.Point(291, 17)
+        Me.MemBox.Name = "MemBox"
+        Me.MemBox.ReadOnly = True
+        Me.MemBox.Size = New System.Drawing.Size(57, 20)
+        Me.MemBox.TabIndex = 10
+        Me.MemBox.TabStop = False
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.OS)
-        Me.GroupBox3.Controls.Add(Me.Arch)
-        Me.GroupBox3.Controls.Add(Me.Mem)
+        Me.GroupBox3.Controls.Add(Me.OSBox)
+        Me.GroupBox3.Controls.Add(Me.ArchBox)
+        Me.GroupBox3.Controls.Add(Me.MemBox)
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.ProgressBar1)
@@ -430,21 +408,21 @@ Partial Class Main
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Avancement"
         '
-        'OS
+        'OSBox
         '
-        Me.OS.Location = New System.Drawing.Point(57, 41)
-        Me.OS.Name = "OS"
-        Me.OS.ReadOnly = True
-        Me.OS.Size = New System.Drawing.Size(59, 20)
-        Me.OS.TabIndex = 13
+        Me.OSBox.Location = New System.Drawing.Point(57, 41)
+        Me.OSBox.Name = "OSBox"
+        Me.OSBox.ReadOnly = True
+        Me.OSBox.Size = New System.Drawing.Size(59, 20)
+        Me.OSBox.TabIndex = 13
         '
-        'Arch
+        'ArchBox
         '
-        Me.Arch.Location = New System.Drawing.Point(188, 18)
-        Me.Arch.Name = "Arch"
-        Me.Arch.ReadOnly = True
-        Me.Arch.Size = New System.Drawing.Size(54, 20)
-        Me.Arch.TabIndex = 12
+        Me.ArchBox.Location = New System.Drawing.Point(188, 18)
+        Me.ArchBox.Name = "ArchBox"
+        Me.ArchBox.ReadOnly = True
+        Me.ArchBox.Size = New System.Drawing.Size(54, 20)
+        Me.ArchBox.TabIndex = 12
         '
         'EditButton
         '
@@ -500,7 +478,6 @@ Partial Class Main
     Friend WithEvents AboutToolMenuItem As ToolStripMenuItem
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents NameBox As TextBox
     Friend WithEvents Label5 As Label
@@ -517,12 +494,11 @@ Partial Class Main
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents Mem As TextBox
+    Friend WithEvents MemBox As TextBox
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents TypeComBox As TextBox
     Friend WithEvents EtatBox As TextBox
-    Friend WithEvents OS As TextBox
-    Friend WithEvents Arch As TextBox
+    Friend WithEvents OSBox As TextBox
+    Friend WithEvents ArchBox As TextBox
     Friend WithEvents GivenByBox As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents EditButton As Button
