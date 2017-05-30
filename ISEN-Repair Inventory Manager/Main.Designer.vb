@@ -24,11 +24,8 @@ Partial Class Main
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.FichierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AjouterUnPCToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.QuitterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddComputerToolMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -47,7 +44,8 @@ Partial Class Main
         Me.EmprunterName = New System.Windows.Forms.TextBox()
         Me.SerieCheckBox = New System.Windows.Forms.CheckBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.IDBox = New System.Windows.Forms.MaskedTextBox()
+        Me.GivenByBox = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TypeComBox = New System.Windows.Forms.TextBox()
         Me.EtatBox = New System.Windows.Forms.TextBox()
@@ -64,7 +62,6 @@ Partial Class Main
         Me.OS = New System.Windows.Forms.TextBox()
         Me.Arch = New System.Windows.Forms.TextBox()
         Me.EditButton = New System.Windows.Forms.Button()
-        Me.IDBox = New System.Windows.Forms.MaskedTextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -74,42 +71,24 @@ Partial Class Main
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FichierToolStripMenuItem, Me.ToolStripMenuItem1})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddComputerToolMenuItem, Me.AboutToolMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(875, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'FichierToolStripMenuItem
+        'AddComputerToolMenuItem
         '
-        Me.FichierToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AjouterUnPCToolStripMenuItem, Me.ToolStripSeparator1, Me.QuitterToolStripMenuItem})
-        Me.FichierToolStripMenuItem.Name = "FichierToolStripMenuItem"
-        Me.FichierToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
-        Me.FichierToolStripMenuItem.Text = "Fichier"
+        Me.AddComputerToolMenuItem.Name = "AddComputerToolMenuItem"
+        Me.AddComputerToolMenuItem.Size = New System.Drawing.Size(93, 20)
+        Me.AddComputerToolMenuItem.Text = "Ajouter un PC"
         '
-        'AjouterUnPCToolStripMenuItem
+        'AboutToolMenuItem
         '
-        Me.AjouterUnPCToolStripMenuItem.Name = "AjouterUnPCToolStripMenuItem"
-        Me.AjouterUnPCToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.AjouterUnPCToolStripMenuItem.Text = "Ajouter un PC"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
-        '
-        'QuitterToolStripMenuItem
-        '
-        Me.QuitterToolStripMenuItem.Name = "QuitterToolStripMenuItem"
-        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.QuitterToolStripMenuItem.Text = "Quitter"
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(24, 20)
-        Me.ToolStripMenuItem1.Text = "?"
+        Me.AboutToolMenuItem.Name = "AboutToolMenuItem"
+        Me.AboutToolMenuItem.Size = New System.Drawing.Size(24, 20)
+        Me.AboutToolMenuItem.Text = "?"
         '
         'StatusStrip1
         '
@@ -275,7 +254,7 @@ Partial Class Main
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.IDBox)
-        Me.GroupBox2.Controls.Add(Me.TextBox4)
+        Me.GroupBox2.Controls.Add(Me.GivenByBox)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.TypeComBox)
         Me.GroupBox2.Controls.Add(Me.EtatBox)
@@ -296,14 +275,24 @@ Partial Class Main
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Information et détails"
         '
-        'TextBox4
+        'IDBox
         '
-        Me.TextBox4.Location = New System.Drawing.Point(339, 166)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.ReadOnly = True
-        Me.TextBox4.Size = New System.Drawing.Size(153, 20)
-        Me.TextBox4.TabIndex = 16
-        Me.TextBox4.TabStop = False
+        Me.IDBox.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite
+        Me.IDBox.Location = New System.Drawing.Point(37, 16)
+        Me.IDBox.Mask = "9999999999"
+        Me.IDBox.Name = "IDBox"
+        Me.IDBox.Size = New System.Drawing.Size(79, 20)
+        Me.IDBox.TabIndex = 0
+        Me.IDBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'GivenByBox
+        '
+        Me.GivenByBox.Location = New System.Drawing.Point(339, 166)
+        Me.GivenByBox.Name = "GivenByBox"
+        Me.GivenByBox.ReadOnly = True
+        Me.GivenByBox.Size = New System.Drawing.Size(153, 20)
+        Me.GivenByBox.TabIndex = 16
+        Me.GivenByBox.TabStop = False
         '
         'Label8
         '
@@ -467,16 +456,6 @@ Partial Class Main
         Me.EditButton.Text = "Modifier"
         Me.EditButton.UseVisualStyleBackColor = True
         '
-        'IDBox
-        '
-        Me.IDBox.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite
-        Me.IDBox.Location = New System.Drawing.Point(37, 16)
-        Me.IDBox.Mask = "9999999999"
-        Me.IDBox.Name = "IDBox"
-        Me.IDBox.Size = New System.Drawing.Size(79, 20)
-        Me.IDBox.TabIndex = 0
-        Me.IDBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -511,8 +490,6 @@ Partial Class Main
     End Sub
 
     Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents FichierToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents QuitterToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents StatusLabel As ToolStripStatusLabel
     Friend WithEvents GroupBox1 As GroupBox
@@ -520,7 +497,7 @@ Partial Class Main
     Friend WithEvents InvList As ListBox
     Friend WithEvents SendOutButton As Button
     Friend WithEvents TrashButton As Button
-    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents AboutToolMenuItem As ToolStripMenuItem
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
@@ -546,10 +523,9 @@ Partial Class Main
     Friend WithEvents EtatBox As TextBox
     Friend WithEvents OS As TextBox
     Friend WithEvents Arch As TextBox
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents GivenByBox As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents EditButton As Button
-    Friend WithEvents AjouterUnPCToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents IDBox As MaskedTextBox
+    Private WithEvents AddComputerToolMenuItem As ToolStripMenuItem
 End Class
