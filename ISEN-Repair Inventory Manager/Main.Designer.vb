@@ -52,7 +52,7 @@ Partial Class Main
         Me.DrvCheck = New System.Windows.Forms.CheckBox()
         Me.SoftCheck = New System.Windows.Forms.CheckBox()
         Me.ActivateCheck = New System.Windows.Forms.CheckBox()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.ComputerRepairGlobalProgress = New System.Windows.Forms.ProgressBar()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.MemBox = New System.Windows.Forms.TextBox()
@@ -72,7 +72,7 @@ Partial Class Main
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddComputerToolMenuItem, Me.AboutToolMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(875, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(874, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -93,7 +93,7 @@ Partial Class Main
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StatusLabel})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 375)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(875, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(874, 22)
         Me.StatusStrip1.TabIndex = 1
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -302,6 +302,7 @@ Partial Class Main
         'HWCheck
         '
         Me.HWCheck.AutoSize = True
+        Me.HWCheck.Enabled = False
         Me.HWCheck.Location = New System.Drawing.Point(7, 20)
         Me.HWCheck.Name = "HWCheck"
         Me.HWCheck.Size = New System.Drawing.Size(72, 17)
@@ -313,6 +314,7 @@ Partial Class Main
         'OSCheck
         '
         Me.OSCheck.AutoSize = True
+        Me.OSCheck.Enabled = False
         Me.OSCheck.Location = New System.Drawing.Point(7, 43)
         Me.OSCheck.Name = "OSCheck"
         Me.OSCheck.Size = New System.Drawing.Size(44, 17)
@@ -324,6 +326,7 @@ Partial Class Main
         'DrvCheck
         '
         Me.DrvCheck.AutoSize = True
+        Me.DrvCheck.Enabled = False
         Me.DrvCheck.Location = New System.Drawing.Point(7, 67)
         Me.DrvCheck.Name = "DrvCheck"
         Me.DrvCheck.Size = New System.Drawing.Size(59, 17)
@@ -335,6 +338,7 @@ Partial Class Main
         'SoftCheck
         '
         Me.SoftCheck.AutoSize = True
+        Me.SoftCheck.Enabled = False
         Me.SoftCheck.Location = New System.Drawing.Point(151, 67)
         Me.SoftCheck.Name = "SoftCheck"
         Me.SoftCheck.Size = New System.Drawing.Size(68, 17)
@@ -346,6 +350,7 @@ Partial Class Main
         'ActivateCheck
         '
         Me.ActivateCheck.AutoSize = True
+        Me.ActivateCheck.Enabled = False
         Me.ActivateCheck.Location = New System.Drawing.Point(72, 67)
         Me.ActivateCheck.Name = "ActivateCheck"
         Me.ActivateCheck.Size = New System.Drawing.Size(73, 17)
@@ -354,12 +359,13 @@ Partial Class Main
         Me.ActivateCheck.Text = "Activation"
         Me.ActivateCheck.UseVisualStyleBackColor = True
         '
-        'ProgressBar1
+        'ComputerRepairGlobalProgress
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(6, 90)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(496, 23)
-        Me.ProgressBar1.TabIndex = 5
+        Me.ComputerRepairGlobalProgress.ForeColor = System.Drawing.Color.Crimson
+        Me.ComputerRepairGlobalProgress.Location = New System.Drawing.Point(6, 90)
+        Me.ComputerRepairGlobalProgress.Name = "ComputerRepairGlobalProgress"
+        Me.ComputerRepairGlobalProgress.Size = New System.Drawing.Size(496, 23)
+        Me.ComputerRepairGlobalProgress.TabIndex = 5
         '
         'Label6
         '
@@ -395,7 +401,7 @@ Partial Class Main
         Me.GroupBox3.Controls.Add(Me.MemBox)
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Controls.Add(Me.Label6)
-        Me.GroupBox3.Controls.Add(Me.ProgressBar1)
+        Me.GroupBox3.Controls.Add(Me.ComputerRepairGlobalProgress)
         Me.GroupBox3.Controls.Add(Me.ActivateCheck)
         Me.GroupBox3.Controls.Add(Me.SoftCheck)
         Me.GroupBox3.Controls.Add(Me.DrvCheck)
@@ -438,7 +444,7 @@ Partial Class Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(875, 397)
+        Me.ClientSize = New System.Drawing.Size(874, 397)
         Me.Controls.Add(Me.EditButton)
         Me.Controls.Add(Me.TrashButton)
         Me.Controls.Add(Me.SendOutButton)
@@ -450,6 +456,8 @@ Partial Class Main
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(890, 436)
+        Me.MinimumSize = New System.Drawing.Size(890, 436)
         Me.Name = "Main"
         Me.Text = "ISEN-Repair Inventory Manager"
         Me.MenuStrip1.ResumeLayout(False)
@@ -491,7 +499,7 @@ Partial Class Main
     Friend WithEvents DrvCheck As CheckBox
     Friend WithEvents SoftCheck As CheckBox
     Friend WithEvents ActivateCheck As CheckBox
-    Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents ComputerRepairGlobalProgress As ProgressBar
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents MemBox As TextBox

@@ -1,7 +1,7 @@
 ﻿Public Class AddMachine
-    Public Shared newID As Integer
+    Public Shared newID As String
 
-    Private Sub AddMachine_2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub AddMachine_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'If HWCheck.Checked And OSCheck.Checked And DrvCheck.Checked And ActivateCheck.Checked Then SoftCheck.Enabled = True Else SoftCheck.Enabled = False
         'If HWCheck.Checked And OSCheck.Checked And DrvCheck.Checked Then
         'ActivateCheck.Enabled = True
@@ -15,7 +15,7 @@
 
         Dim addMachine_IdForm As AddMachine_ID
         addMachine_IdForm = New AddMachine_ID()
-        addMachine_IdForm.Show()
+        addMachine_IdForm.ShowDialog()
         addMachine_IdForm = Nothing
     End Sub
 End Class

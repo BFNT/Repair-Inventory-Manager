@@ -1,0 +1,1 @@
+Add validation part for can't modify computer progress when it's to be send out

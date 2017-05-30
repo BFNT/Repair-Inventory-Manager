@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SQLite
+
 Public Class Main
     Dim manualID_selected As Boolean = False
 
@@ -117,6 +118,7 @@ Public Class Main
                         If dtr.GetInt32(5) = 1 Then EmpruntCheckBox.Checked = True
                         EmprunterName.Text = dtr.GetString(6)
                         GivenByBox.Text = dtr.GetString(7)
+                        RequestComputerProgress(IDBox.Text)
                     End While
                 End Using
                 con.Close()
@@ -139,7 +141,7 @@ Public Class Main
     Private Sub AddComputerToolMenuItem_Click(sender As Object, e As EventArgs) Handles AddComputerToolMenuItem.Click
         Dim addMachineForm As AddMachine
         addMachineForm = New AddMachine()
-        addMachineForm.Show()
+        addMachineForm.ShowDialog()
         addMachineForm = Nothing
     End Sub
 
@@ -174,6 +176,7 @@ Public Class Main
                             If dtr.GetInt32(5) = 1 Then EmpruntCheckBox.Checked = True
                             EmprunterName.Text = dtr.GetString(6)
                             GivenByBox.Text = dtr.GetString(7)
+                            RequestComputerProgress(IDBox.Text)
                         End While
                         If Not id_found Then StatusLabel.Text = "ID introuvable !"
                     End Using
@@ -205,6 +208,11 @@ Public Class Main
                         DrvCheck.Checked = dtr.GetBoolean(3)
                         ActivateCheck.Checked = dtr.GetBoolean(4)
                         SoftCheck.Checked = dtr.GetBoolean(5)
+                        Dim advIntPerc As Integer = 0
+                        For index As Integer = 1 To 5
+                            If dtr.GetBoolean(index) Then advIntPerc = advIntPerc + 1
+                        Next
+                        ComputerRepairGlobalProgress.Value = advIntPerc * 100 / 5
                         Select Case dtr.GetInt32(6)
                             Case 1
                                 ArchBox.Text = "32bits"
@@ -224,6 +232,18 @@ Public Class Main
                                 MemBox.Text = "4G"
                             Case 6
                                 MemBox.Text = ">4G"
+                        End Select
+                        Select Case dtr.GetInt32(8)
+                            Case 1
+                                OSBox.Text = "Win XP PRO SP3"
+                            Case 2
+                                OSBox.Text = "WIN 7 SP1"
+                            Case 3
+                                OSBox.Text = "WIN 10"
+                            Case 4
+                                OSBox.Text = "UNIX"
+                            Case 5
+                                OSBox.Text = "Inconnue"
                         End Select
                     End While
                 End Using

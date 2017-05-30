@@ -49,7 +49,6 @@ Partial Class AddMachine_ID
         Me.newIDBox.Location = New System.Drawing.Point(6, 16)
         Me.newIDBox.Mask = "9999999999"
         Me.newIDBox.Name = "newIDBox"
-        Me.newIDBox.PromptChar = Global.Microsoft.VisualBasic.ChrW(88)
         Me.newIDBox.Size = New System.Drawing.Size(100, 20)
         Me.newIDBox.TabIndex = 0
         Me.newIDBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -95,7 +94,9 @@ Partial Class AddMachine_ID
         Me.Controls.Add(Me.AddMachine_ID_CancelButton)
         Me.Controls.Add(Me.Label1)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(376, 206)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(376, 206)
         Me.Name = "AddMachine_ID"
         Me.ShowIcon = False
         Me.Text = "Ajouter un ordinateur"
