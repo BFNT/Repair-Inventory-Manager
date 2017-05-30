@@ -8,7 +8,7 @@
     End Sub
 
     Private Sub CheckIDAlreadyUsed(idToCheck As String)
-        Main.RequestToSQLite("")
+        'Main.RequestToSQLite("")
     End Sub
 
     Private Sub NextButton_Click(sender As Object, e As EventArgs) Handles NextButton.Click
