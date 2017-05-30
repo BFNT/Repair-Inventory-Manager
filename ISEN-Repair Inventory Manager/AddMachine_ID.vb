@@ -3,6 +3,7 @@
 Public Class AddMachine_ID
     Private Sub AddMachine_ID_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         NextButton.Enabled = False
+        newIDBox.Focus()
     End Sub
 
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles AddMachine_ID_CancelButton.Click
@@ -37,7 +38,7 @@ Public Class AddMachine_ID
     Private Sub NextButton_Click(sender As Object, e As EventArgs) Handles NextButton.Click
         If Not CheckIDAlreadyUsed(newIDBox.Text) Then
             AddMachine.newID = newIDBox.Text
-
+            Me.Close()
         Else
             MsgBox("ID déjà dans la base de données !", 48, "Entrée incorrect")
         End If
