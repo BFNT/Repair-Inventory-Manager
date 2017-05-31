@@ -24,13 +24,14 @@ Public Class AddMachine
     End Sub
 
     Private Sub AddComputerButton_Click(sender As Object, e As EventArgs) Handles AddComputerButton.Click
-        Dim addComputer_seq As String = "
-            INSERT INTO computers_desc VALUES ('" & NewIDBox.Text & "','" & NewNameBox.Text & "'," & NewEtatBox.SelectedIndex + 1 & "," & CheckToNumeric(NewSerieCheckBox) & ",'" & NewDetailsBox.Text & "',0,'N/A','" & NewGivenByBox.Text & "');
-            INSERT INTO computers_progress VALUES ('" & NewIDBox.Text & "',0,0,0,0,0,1,1,1);
-        "
         If NewNameBox.Text = "" Then MsgBox("Vous ne pouvez pas laisser un nom vide !", 48, "Erreur de saisie") : Exit Sub
         If NewDetailsBox.Text = "" Then NewDetailsBox.Text = "N/A"
         If NewGivenByBox.Text = "" Then NewGivenByBox.Text = "N/A"
+        Dim addComputer_seq As String = "
+            INSERT INTO computers_desc VALUES ('" & NewIDBox.Text & "','" & NewNameBox.Text & "'," & NewEtatBox.SelectedIndex & "," & CheckToNumeric(NewSerieCheckBox) & ",'" & NewDetailsBox.Text & "',0,'N/A','" & NewGivenByBox.Text & "');
+            INSERT INTO computers_progress VALUES ('" & NewIDBox.Text & "',0,0,0,0,0,1,1,1);
+        "
+
         Try
             Main.StatusLabel.Text = "Tentative d'ajout de l'ordinateur à la base de données..."
             Using con As New SQLiteConnection("URI=file:db.sqlite")
