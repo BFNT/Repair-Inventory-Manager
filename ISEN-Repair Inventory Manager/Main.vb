@@ -104,7 +104,6 @@ Public Class Main
                         IDBox.Text = dtr.GetString(0)
                         manualID_selected = True
                         NameBox.Text = dtr.GetString(1)
-                        InvSearchBar.Text = dtr.GetString(1)
                         If dtr.GetInt32(2) = 0 Then
                             EtatBox.Text = "R.I.P"
                         ElseIf dtr.GetInt32(2) = 1 Then
@@ -162,7 +161,6 @@ Public Class Main
                             manualID_selected = True
                             StatusLabel.Text = "ID trouvé !"
                             NameBox.Text = dtr.GetString(1)
-                            InvSearchBar.Text = dtr.GetString(1)
                             If dtr.GetInt32(2) = 0 Then
                                 EtatBox.Text = "R.I.P"
                             ElseIf dtr.GetInt32(2) = 1 Then
@@ -250,6 +248,31 @@ Public Class Main
                 End Using
                 con.Close()
             End Using
+
+            If HWCheck.Checked And OSCheck.Checked And DrvCheck.Checked And SoftCheck.Checked And ActivateCheck.Checked Then SendOutButton.Enabled = True Else SendOutButton.Enabled = False
+        Catch ex As Exception
+            StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub TrashButton_Click(sender As Object, e As EventArgs) Handles TrashButton.Click
+        If MsgBox("ATTENTION ! Voulez vous vraiment supprimer cette ordinateur de la base de données ?", 292, "Trash") = 7 Then Exit Sub
+        Dim trash_seq As String = "
+            DELETE FROM computers_desc WHERE id='" & IDBox.Text & "';
+            DELETE FROM computers_progress WHERE id='" & IDBox.Text & "';
+        "
+
+        Try
+            StatusLabel.Text = "Supression d'un ordinateur de la base de données..."
+            Using con As New SQLiteConnection("URI=file:db.sqlite")
+                con.Open()
+                Dim cmd As New SQLiteCommand(trash_seq, con)
+                If cmd.ExecuteNonQuery() <> 2 Then MsgBox("Erreur inconnue au niveau de la base de données !", 16, "Defaillance générale !") : End
+                con.Close()
+            End Using
+            StatusLabel.Text = "Ordinateur supprimé avec succès !"
+            ListAllInv()
         Catch ex As Exception
             StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
             MsgBox(ex.Message)

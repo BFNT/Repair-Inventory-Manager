@@ -29,7 +29,6 @@ Partial Class Main
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.InvSearchBar = New System.Windows.Forms.TextBox()
         Me.InvList = New System.Windows.Forms.ListBox()
         Me.SendOutButton = New System.Windows.Forms.Button()
         Me.TrashButton = New System.Windows.Forms.Button()
@@ -105,7 +104,6 @@ Partial Class Main
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.InvSearchBar)
         Me.GroupBox1.Controls.Add(Me.InvList)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
         Me.GroupBox1.Name = "GroupBox1"
@@ -114,42 +112,38 @@ Partial Class Main
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Inventaire"
         '
-        'InvSearchBar
-        '
-        Me.InvSearchBar.Location = New System.Drawing.Point(7, 20)
-        Me.InvSearchBar.Name = "InvSearchBar"
-        Me.InvSearchBar.Size = New System.Drawing.Size(323, 20)
-        Me.InvSearchBar.TabIndex = 1
-        '
         'InvList
         '
         Me.InvList.FormattingEnabled = True
-        Me.InvList.Location = New System.Drawing.Point(6, 48)
+        Me.InvList.Location = New System.Drawing.Point(6, 17)
         Me.InvList.Name = "InvList"
         Me.InvList.ScrollAlwaysVisible = True
-        Me.InvList.Size = New System.Drawing.Size(324, 277)
+        Me.InvList.Size = New System.Drawing.Size(324, 316)
         Me.InvList.Sorted = True
         Me.InvList.TabIndex = 2
         '
         'SendOutButton
         '
+        Me.SendOutButton.BackColor = System.Drawing.Color.Green
         Me.SendOutButton.Location = New System.Drawing.Point(701, 343)
         Me.SendOutButton.Name = "SendOutButton"
         Me.SendOutButton.Size = New System.Drawing.Size(156, 23)
         Me.SendOutButton.TabIndex = 6
         Me.SendOutButton.TabStop = False
-        Me.SendOutButton.Text = "Livré"
-        Me.SendOutButton.UseVisualStyleBackColor = True
+        Me.SendOutButton.Text = "A été livré"
+        Me.SendOutButton.UseVisualStyleBackColor = False
         '
         'TrashButton
         '
+        Me.TrashButton.BackColor = System.Drawing.Color.Firebrick
+        Me.TrashButton.ForeColor = System.Drawing.Color.White
         Me.TrashButton.Location = New System.Drawing.Point(361, 343)
         Me.TrashButton.Name = "TrashButton"
         Me.TrashButton.Size = New System.Drawing.Size(156, 23)
         Me.TrashButton.TabIndex = 7
         Me.TrashButton.TabStop = False
-        Me.TrashButton.Text = "Jeté"
-        Me.TrashButton.UseVisualStyleBackColor = True
+        Me.TrashButton.Text = "A été jeté"
+        Me.TrashButton.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -361,7 +355,7 @@ Partial Class Main
         '
         'ComputerRepairGlobalProgress
         '
-        Me.ComputerRepairGlobalProgress.ForeColor = System.Drawing.Color.Crimson
+        Me.ComputerRepairGlobalProgress.ForeColor = System.Drawing.Color.SteelBlue
         Me.ComputerRepairGlobalProgress.Location = New System.Drawing.Point(6, 90)
         Me.ComputerRepairGlobalProgress.Name = "ComputerRepairGlobalProgress"
         Me.ComputerRepairGlobalProgress.Size = New System.Drawing.Size(496, 23)
@@ -432,13 +426,14 @@ Partial Class Main
         '
         'EditButton
         '
+        Me.EditButton.BackColor = System.Drawing.Color.Gold
         Me.EditButton.Location = New System.Drawing.Point(523, 343)
         Me.EditButton.Name = "EditButton"
         Me.EditButton.Size = New System.Drawing.Size(172, 23)
         Me.EditButton.TabIndex = 8
         Me.EditButton.TabStop = False
-        Me.EditButton.Text = "Modifier"
-        Me.EditButton.UseVisualStyleBackColor = True
+        Me.EditButton.Text = "Editer le suivi"
+        Me.EditButton.UseVisualStyleBackColor = False
         '
         'Main
         '
@@ -465,7 +460,6 @@ Partial Class Main
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
@@ -479,7 +473,6 @@ Partial Class Main
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents StatusLabel As ToolStripStatusLabel
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents InvSearchBar As TextBox
     Friend WithEvents InvList As ListBox
     Friend WithEvents SendOutButton As Button
     Friend WithEvents TrashButton As Button
