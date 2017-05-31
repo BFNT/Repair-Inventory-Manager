@@ -2,6 +2,7 @@
 
 Public Class Main
     Dim manualID_selected As Boolean = False
+    Dim idList As New ArrayList
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckIfFirstRun()
@@ -63,6 +64,7 @@ Public Class Main
     End Sub
 
     Public Sub ListAllInv()
+        idList.Clear()
         Dim dtr As SQLiteDataReader
 
         InvList.Items.Clear()
@@ -73,10 +75,11 @@ Public Class Main
             Using con As New SQLiteConnection("URI=file:db.sqlite")
                 con.Open()
                 Using cmd As New SQLiteCommand(con)
-                    cmd.CommandText = "SELECT name FROM computers_desc;"
+                    cmd.CommandText = "SELECT id,name FROM computers_desc;"
                     dtr = cmd.ExecuteReader()
                     While dtr.Read()
-                        InvList.Items.Add(dtr.GetString(0))
+                        idList.Add(dtr.GetString(0))
+                        InvList.Items.Add(dtr.GetString(1))
                     End While
                 End Using
                 con.Close()
@@ -98,7 +101,7 @@ Public Class Main
             Using con As New SQLiteConnection("URI=file:db.sqlite")
                 con.Open()
                 Using cmd As New SQLiteCommand(con)
-                    cmd.CommandText = "SELECT * FROM computers_desc WHERE _rowid_=" & InvList.SelectedIndex + 1 & ";"
+                    cmd.CommandText = "SELECT * FROM computers_desc WHERE id=" & idList(InvList.SelectedIndex) & ";"
                     dtr = cmd.ExecuteReader()
                     While dtr.Read()
                         IDBox.Text = dtr.GetString(0)
@@ -258,17 +261,16 @@ Public Class Main
 
     Private Sub TrashButton_Click(sender As Object, e As EventArgs) Handles TrashButton.Click
         If MsgBox("ATTENTION ! Voulez vous vraiment supprimer cette ordinateur de la base de données ?", 292, "Trash") = 7 Then Exit Sub
-        Dim trash_seq As String = "
-            DELETE FROM computers_desc WHERE id='" & IDBox.Text & "';
-            DELETE FROM computers_progress WHERE id='" & IDBox.Text & "';
-        "
 
         Try
             StatusLabel.Text = "Supression d'un ordinateur de la base de données..."
             Using con As New SQLiteConnection("URI=file:db.sqlite")
                 con.Open()
-                Dim cmd As New SQLiteCommand(trash_seq, con)
-                If cmd.ExecuteNonQuery() <> 2 Then MsgBox("Erreur inconnue au niveau de la base de données !", 16, "Defaillance générale !") : End
+                Dim cmd As New SQLiteCommand(con)
+                cmd.CommandText = "DELETE FROM computers_desc WHERE id='" & IDBox.Text & "';"
+                If cmd.ExecuteNonQuery() <> 1 Then MsgBox("Erreur inconnue au niveau de la base de données !", 16, "Defaillance générale !") : End
+                cmd.CommandText = "DELETE FROM computers_progress WHERE id='" & IDBox.Text & "';"
+                If cmd.ExecuteNonQuery() <> 1 Then MsgBox("Erreur inconnue au niveau de la base de données !", 16, "Defaillance générale !") : End
                 con.Close()
             End Using
             StatusLabel.Text = "Ordinateur supprimé avec succès !"

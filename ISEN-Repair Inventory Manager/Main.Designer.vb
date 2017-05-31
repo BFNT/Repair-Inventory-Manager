@@ -119,7 +119,6 @@ Partial Class Main
         Me.InvList.Name = "InvList"
         Me.InvList.ScrollAlwaysVisible = True
         Me.InvList.Size = New System.Drawing.Size(324, 316)
-        Me.InvList.Sorted = True
         Me.InvList.TabIndex = 2
         '
         'SendOutButton
