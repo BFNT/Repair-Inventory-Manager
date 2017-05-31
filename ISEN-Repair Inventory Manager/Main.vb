@@ -45,7 +45,7 @@ Public Class Main
             CREATE TABLE `credits` (
 	        `pseudo`	TEXT DEFAULT 'JackCarterSmith' UNIQUE,
 	        `contact`	TEXT DEFAULT 'j@bfnt.io' UNIQUE,
-        	`commentaire`	TEXT DEFAULT 'Vous m avez trouvé !' UNIQUE
+        	`commentaire`	TEXT DEFAULT 'Vous avez trouvé un EasterEgg félicitation !' UNIQUE
         );"
 
         Try
@@ -149,6 +149,18 @@ Public Class Main
     End Sub
 
     Private Sub IDBox_TextChanged(sender As Object, e As EventArgs) Handles IDBox.TextChanged
+        If IDBox.Text = "666" Then
+            manualID_selected = True
+            StatusLabel.Text = "ID trouvé !"
+            NameBox.Text = "DELL Fuel Burning Serial - Complete collection"
+            EtatBox.Text = "Detonator armed"
+            SerieCheckBox.Checked = True
+            DetailsBox.Text = "DEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEADDEAD"
+            EmpruntCheckBox.Checked = False
+            EmprunterName.Text = "Fuyez pauvre fou !"
+            GivenByBox.Text = "Enfer"
+            StatusLabel.Text = "Vous avez trouvé un EasterEgg félicitation !"
+        End If
         If IDBox.Text.Length() = 10 Then
             Dim dtr As SQLiteDataReader
 
