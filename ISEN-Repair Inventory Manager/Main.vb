@@ -28,7 +28,7 @@ Public Class Main
 	        `comms`	TEXT NOT NULL DEFAULT 'N/A',
 	        `gived`	INTEGER NOT NULL DEFAULT 0,
 	        `giveTo`	TEXT NOT NULL DEFAULT 'N/A',
-	        `getBy`	NUMERIC NOT NULL DEFAULT 'ISEN'
+	        `getBy`	TEXT NOT NULL DEFAULT 'ISEN'
         );
             CREATE TABLE `computers_progress` (
 	        `id`	TEXT NOT NULL DEFAULT 0000000000 UNIQUE,
@@ -62,9 +62,10 @@ Public Class Main
         End Try
     End Sub
 
-    Private Sub ListAllInv()
+    Public Sub ListAllInv()
         Dim dtr As SQLiteDataReader
 
+        InvList.Items.Clear()
         InvList.ValueMember = "Equippements"
         InvList.DisplayMember = "Nom"
         Try

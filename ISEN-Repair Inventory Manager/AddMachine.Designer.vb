@@ -27,7 +27,6 @@ Partial Class AddMachine
         Me.NewIDBox = New System.Windows.Forms.TextBox()
         Me.NewGivenByBox = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.NewEtatBox = New System.Windows.Forms.TextBox()
         Me.NewSerieCheckBox = New System.Windows.Forms.CheckBox()
         Me.NewDetailsBox = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -38,16 +37,17 @@ Partial Class AddMachine
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.AddCompCancelButton = New System.Windows.Forms.Button()
         Me.AddComputerButton = New System.Windows.Forms.Button()
+        Me.NewEtatBox = New System.Windows.Forms.ComboBox()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.NewEtatBox)
         Me.GroupBox2.Controls.Add(Me.NewIDBox)
         Me.GroupBox2.Controls.Add(Me.NewGivenByBox)
         Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Controls.Add(Me.NewEtatBox)
         Me.GroupBox2.Controls.Add(Me.NewSerieCheckBox)
         Me.GroupBox2.Controls.Add(Me.NewDetailsBox)
         Me.GroupBox2.Controls.Add(Me.Label5)
@@ -86,13 +86,6 @@ Partial Class AddMachine
         Me.Label8.Size = New System.Drawing.Size(71, 13)
         Me.Label8.TabIndex = 15
         Me.Label8.Text = "Provenance :"
-        '
-        'NewEtatBox
-        '
-        Me.NewEtatBox.Location = New System.Drawing.Point(37, 47)
-        Me.NewEtatBox.Name = "NewEtatBox"
-        Me.NewEtatBox.Size = New System.Drawing.Size(131, 20)
-        Me.NewEtatBox.TabIndex = 1
         '
         'NewSerieCheckBox
         '
@@ -185,6 +178,15 @@ Partial Class AddMachine
         Me.AddComputerButton.Text = "Ajouter"
         Me.AddComputerButton.UseVisualStyleBackColor = True
         '
+        'NewEtatBox
+        '
+        Me.NewEtatBox.FormattingEnabled = True
+        Me.NewEtatBox.Items.AddRange(New Object() {"R.I.P", "Peut faire l'affaire", "En état", "Neuf"})
+        Me.NewEtatBox.Location = New System.Drawing.Point(45, 47)
+        Me.NewEtatBox.Name = "NewEtatBox"
+        Me.NewEtatBox.Size = New System.Drawing.Size(121, 21)
+        Me.NewEtatBox.TabIndex = 1
+        '
         'AddMachine
         '
         Me.AcceptButton = Me.AddComputerButton
@@ -211,7 +213,6 @@ Partial Class AddMachine
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents NewGivenByBox As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents NewEtatBox As TextBox
     Friend WithEvents NewSerieCheckBox As CheckBox
     Friend WithEvents NewDetailsBox As TextBox
     Friend WithEvents Label5 As Label
@@ -223,4 +224,5 @@ Partial Class AddMachine
     Friend WithEvents NewIDBox As TextBox
     Friend WithEvents AddCompCancelButton As Button
     Friend WithEvents AddComputerButton As Button
+    Friend WithEvents NewEtatBox As ComboBox
 End Class

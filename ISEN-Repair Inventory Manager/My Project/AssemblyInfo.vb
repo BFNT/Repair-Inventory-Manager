@@ -9,8 +9,8 @@ Imports System.Runtime.InteropServices
 ' Vérifiez les valeurs des attributs de l'assembly
 
 <Assembly: AssemblyTitle("ISEN-Repair Inventory Manager")>
-<Assembly: AssemblyDescription("Soft de gestion et du suivi des PCs de la Repair, les entrées et les sorties ainsi que les empruns.")>
-<Assembly: AssemblyCompany("JCS's Production")>
+<Assembly: AssemblyDescription("Soft de gestion et du suivi des ordinateurs de la Repair, les entrées et les sorties ainsi que les empruns.")>
+<Assembly: AssemblyCompany("by JackCarterSmith")>
 <Assembly: AssemblyProduct("ISEN-Repair Inventory Manager")>
 <Assembly: AssemblyCopyright("Copyright ©  2017")>
 <Assembly: AssemblyTrademark("")>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' en utilisant '*', comme indiqué ci-dessous :
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("1.1.52.0")>
+<Assembly: AssemblyFileVersion("1.1.52.0")>
