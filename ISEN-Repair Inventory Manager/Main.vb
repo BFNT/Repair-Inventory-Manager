@@ -292,4 +292,29 @@ Public Class Main
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    Private Sub IDBox_KeyDown(sender As Object, e As KeyEventArgs) Handles IDBox.KeyDown
+        Select Case e.KeyCode.ToString()
+            Case "D0"
+                IDBox.Text = IDBox.Text & "0"
+            Case "D1"
+                IDBox.Text = IDBox.Text & "1"
+            Case "D2"
+                IDBox.Text = IDBox.Text & "2"
+            Case "D3"
+                IDBox.Text = IDBox.Text & "3"
+            Case "D4"
+                IDBox.Text = IDBox.Text & "4"
+            Case "D5"
+                IDBox.Text = IDBox.Text & "5"
+            Case "D6"
+                IDBox.Text = IDBox.Text & "6"
+            Case "D7"
+                IDBox.Text = IDBox.Text & "7"
+            Case "D8"
+                IDBox.Text = IDBox.Text & "8"
+            Case "D9"
+                IDBox.Text = IDBox.Text & "9"
+        End Select
+    End Sub
 End Class
