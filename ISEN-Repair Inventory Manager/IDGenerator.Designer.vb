@@ -36,7 +36,6 @@ Partial Class IDGenerator
         Me.Barcode1.BarHeightCM = 1.0!
         Me.Barcode1.BearerBarHorizontal = 0
         Me.Barcode1.BearerBarVertical = 0
-        Me.Barcode1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Barcode1.CaptionAbove = ""
         Me.Barcode1.CaptionBelow = ""
         Me.Barcode1.CaptionBottomAlignment = System.Drawing.StringAlignment.Center
@@ -70,7 +69,7 @@ Partial Class IDGenerator
         Me.Barcode1.RotationAngle = IDAutomation.Windows.Forms.LinearBarCode.RotationAngles.Zero_Degrees
         Me.Barcode1.ShowText = True
         Me.Barcode1.ShowTextLocation = IDAutomation.Windows.Forms.LinearBarCode.HRTextPositions.Bottom
-        Me.Barcode1.Size = New System.Drawing.Size(173, 77)
+        Me.Barcode1.Size = New System.Drawing.Size(171, 75)
         Me.Barcode1.SuppSeparationCM = 0.5!
         Me.Barcode1.SymbologyID = IDAutomation.Windows.Forms.LinearBarCode.Symbologies.Code39
         Me.Barcode1.TabIndex = 0
