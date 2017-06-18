@@ -19,6 +19,31 @@ Public Class Main
         End If
     End Sub
 
+    Public Function CheckIDAlreadyUsed(idToCheck As String) As Boolean
+        Dim dtr As SQLiteDataReader
+
+        Try
+            Using con As New SQLiteConnection("URI=file:db.sqlite")
+                con.Open()
+                Using cmd As New SQLiteCommand(con)
+                    cmd.CommandText = "SELECT * FROM computers_desc WHERE id=" & idToCheck & ";"
+                    dtr = cmd.ExecuteReader()
+                    While dtr.Read()
+                        Return True
+                    End While
+                    Return False
+                End Using
+                con.Close()
+            End Using
+
+        Catch ex As Exception
+            StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
+            MsgBox(ex.Message)
+        End Try
+
+        Return True
+    End Function
+
     Private Sub RegenerateDB()
         Dim genesis_seq As String = "
             CREATE TABLE `computers_desc` (
@@ -316,5 +341,12 @@ Public Class Main
             Case "D9"
                 IDBox.Text = IDBox.Text & "9"
         End Select
+    End Sub
+
+    Private Sub GénérerDesIDsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GénérerDesIDsToolStripMenuItem.Click
+        Dim idGeneratorForm As IDGenerator
+        idGeneratorForm = New IDGenerator()
+        idGeneratorForm.Show()
+        idGeneratorForm = Nothing
     End Sub
 End Class
