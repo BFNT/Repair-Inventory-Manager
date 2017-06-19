@@ -19,6 +19,31 @@ Public Class Main
         End If
     End Sub
 
+    Public Function CheckIDAlreadyUsed(idToCheck As String) As Boolean
+        Dim dtr As SQLiteDataReader
+
+        Try
+            Using con As New SQLiteConnection("URI=file:db.sqlite")
+                con.Open()
+                Using cmd As New SQLiteCommand(con)
+                    cmd.CommandText = "SELECT * FROM computers_desc WHERE id=" & idToCheck & ";"
+                    dtr = cmd.ExecuteReader()
+                    While dtr.Read()
+                        Return True
+                    End While
+                    Return False
+                End Using
+                con.Close()
+            End Using
+
+        Catch ex As Exception
+            StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
+            MsgBox(ex.Message)
+        End Try
+
+        Return True
+    End Function
+
     Private Sub RegenerateDB()
         Dim genesis_seq As String = "
             CREATE TABLE `computers_desc` (
@@ -27,7 +52,7 @@ Public Class Main
 	        `etat`	INTEGER NOT NULL DEFAULT 0,
         	`serial`	NUMERIC NOT NULL DEFAULT 0,
 	        `comms`	TEXT NOT NULL DEFAULT 'N/A',
-	        `gived`	INTEGER NOT NULL DEFAULT 0,
+	        `gived`	NUMERIC NOT NULL DEFAULT 0,
 	        `giveTo`	TEXT NOT NULL DEFAULT 'N/A',
 	        `getBy`	TEXT NOT NULL DEFAULT 'ISEN'
         );
@@ -116,9 +141,9 @@ Public Class Main
                         ElseIf dtr.GetInt32(2) = 3 Then
                             EtatBox.Text = "Neuf"
                         End If
-                        If dtr.GetInt32(3) = 1 Then SerieCheckBox.Checked = True
+                        SerieCheckBox.Checked = dtr.GetBoolean(3)
                         DetailsBox.Text = dtr.GetString(4)
-                        If dtr.GetInt32(5) = 1 Then EmpruntCheckBox.Checked = True
+                        EmpruntCheckBox.Checked = dtr.GetBoolean(5)
                         EmprunterName.Text = dtr.GetString(6)
                         GivenByBox.Text = dtr.GetString(7)
                         RequestComputerProgress(IDBox.Text)
@@ -185,9 +210,9 @@ Public Class Main
                             ElseIf dtr.GetInt32(2) = 3 Then
                                 EtatBox.Text = "Neuf"
                             End If
-                            If dtr.GetInt32(3) = 1 Then SerieCheckBox.Checked = True
+                            SerieCheckBox.Checked = dtr.GetBoolean(3)
                             DetailsBox.Text = dtr.GetString(4)
-                            If dtr.GetInt32(5) = 1 Then EmpruntCheckBox.Checked = True
+                            EmpruntCheckBox.Checked = dtr.GetBoolean(5)
                             EmprunterName.Text = dtr.GetString(6)
                             GivenByBox.Text = dtr.GetString(7)
                             RequestComputerProgress(IDBox.Text)
@@ -291,5 +316,37 @@ Public Class Main
             StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub IDBox_KeyDown(sender As Object, e As KeyEventArgs) Handles IDBox.KeyDown
+        Select Case e.KeyCode.ToString()
+            Case "D0"
+                IDBox.Text = IDBox.Text & "0"
+            Case "D1"
+                IDBox.Text = IDBox.Text & "1"
+            Case "D2"
+                IDBox.Text = IDBox.Text & "2"
+            Case "D3"
+                IDBox.Text = IDBox.Text & "3"
+            Case "D4"
+                IDBox.Text = IDBox.Text & "4"
+            Case "D5"
+                IDBox.Text = IDBox.Text & "5"
+            Case "D6"
+                IDBox.Text = IDBox.Text & "6"
+            Case "D7"
+                IDBox.Text = IDBox.Text & "7"
+            Case "D8"
+                IDBox.Text = IDBox.Text & "8"
+            Case "D9"
+                IDBox.Text = IDBox.Text & "9"
+        End Select
+    End Sub
+
+    Private Sub GénérerDesIDsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GénérerDesIDsToolStripMenuItem.Click
+        Dim idGeneratorForm As IDGenerator
+        idGeneratorForm = New IDGenerator()
+        idGeneratorForm.Show()
+        idGeneratorForm = Nothing
     End Sub
 End Class

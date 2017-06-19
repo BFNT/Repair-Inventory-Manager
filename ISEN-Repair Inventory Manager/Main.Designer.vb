@@ -59,6 +59,7 @@ Partial Class Main
         Me.OSBox = New System.Windows.Forms.TextBox()
         Me.ArchBox = New System.Windows.Forms.TextBox()
         Me.EditButton = New System.Windows.Forms.Button()
+        Me.GénérerDesIDsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -68,7 +69,7 @@ Partial Class Main
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddComputerToolMenuItem, Me.AboutToolMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddComputerToolMenuItem, Me.GénérerDesIDsToolStripMenuItem, Me.AboutToolMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(874, 24)
@@ -434,6 +435,12 @@ Partial Class Main
         Me.EditButton.Text = "Editer le suivi"
         Me.EditButton.UseVisualStyleBackColor = False
         '
+        'GénérerDesIDsToolStripMenuItem
+        '
+        Me.GénérerDesIDsToolStripMenuItem.Name = "GénérerDesIDsToolStripMenuItem"
+        Me.GénérerDesIDsToolStripMenuItem.Size = New System.Drawing.Size(100, 20)
+        Me.GénérerDesIDsToolStripMenuItem.Text = "Générer des IDs"
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -504,4 +511,5 @@ Partial Class Main
     Friend WithEvents EditButton As Button
     Friend WithEvents IDBox As MaskedTextBox
     Private WithEvents AddComputerToolMenuItem As ToolStripMenuItem
+    Friend WithEvents GénérerDesIDsToolStripMenuItem As ToolStripMenuItem
 End Class

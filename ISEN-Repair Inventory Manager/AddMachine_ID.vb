@@ -1,6 +1,4 @@
-﻿Imports System.Data.SQLite
-
-Public Class AddMachine_ID
+﻿Public Class AddMachine_ID
     Private Sub AddMachine_ID_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         NextButton.Enabled = False
         newIDBox.Focus()
@@ -10,33 +8,8 @@ Public Class AddMachine_ID
         Me.Close()
     End Sub
 
-    Private Function CheckIDAlreadyUsed(idToCheck As String) As Boolean
-        Dim dtr As SQLiteDataReader
-
-        Try
-            Using con As New SQLiteConnection("URI=file:db.sqlite")
-                con.Open()
-                Using cmd As New SQLiteCommand(con)
-                    cmd.CommandText = "SELECT * FROM computers_desc WHERE id=" & idToCheck & ";"
-                    dtr = cmd.ExecuteReader()
-                    While dtr.Read()
-                        Return True
-                    End While
-                    Return False
-                End Using
-                con.Close()
-            End Using
-
-        Catch ex As Exception
-            Main.StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
-            MsgBox(ex.Message)
-        End Try
-
-        Return True
-    End Function
-
     Private Sub NextButton_Click(sender As Object, e As EventArgs) Handles NextButton.Click
-        If Not CheckIDAlreadyUsed(newIDBox.Text) Then
+        If Not Main.CheckIDAlreadyUsed(newIDBox.Text) Then
             AddMachine.newID = newIDBox.Text
             Me.Close()
         Else

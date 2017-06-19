@@ -10,7 +10,7 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("ISEN-Repair Inventory Manager")>
 <Assembly: AssemblyDescription("Soft de gestion et du suivi des ordinateurs de la Repair, les entrées et les sorties ainsi que les empruns.")>
-<Assembly: AssemblyCompany("by JackCarterSmith")>
+<Assembly: AssemblyCompany("by ARE Christopher (JackCarterSmith)")>
 <Assembly: AssemblyProduct("ISEN-Repair Inventory Manager")>
 <Assembly: AssemblyCopyright("Copyright ©  2017")>
 <Assembly: AssemblyTrademark("")>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' en utilisant '*', comme indiqué ci-dessous :
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("0.7.0.0")>
-<Assembly: AssemblyFileVersion("0.7.0.0")>
+<Assembly: AssemblyVersion("0.8.0.0")>
+<Assembly: AssemblyFileVersion("0.8.0.0")>
