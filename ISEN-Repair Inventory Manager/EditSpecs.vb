@@ -1,4 +1,6 @@
-﻿Public Class EditSpecs
+﻿Imports System.Data.SQLite
+
+Public Class EditSpecs
     Public Sub New(id As String, name As String, stat As String, givedBy As String, serial As Boolean, details As String, emprunt As Boolean, empruntBy As String,
                    HW As Boolean, OS As Boolean, DRV As Boolean, ACT As Boolean, SFT As Boolean, procArch As String, ram As String, typeOS As String)
 
@@ -53,7 +55,30 @@
         End Select
     End Sub
 
-    Private Sub SaveEditButton_Click(sender As Object, e As EventArgs) Handles SaveEditButton.Click
+    Private Function BooleanToNumeric(entry As Boolean) As String
+        If entry Then Return "1"
+        Return "0"
+    End Function
 
+    Private Sub SaveEditButton_Click(sender As Object, e As EventArgs) Handles SaveEditButton.Click
+        If MsgBox("Enregistrer les données ?", 292, "Enregistrer") = 7 Then Exit Sub
+
+        Try
+            Main.StatusLabel.Text = "Modification d'un ordinateur de la base de données..."
+            Using con As New SQLiteConnection("URI=file:db.sqlite")
+                con.Open()
+                Dim cmd As New SQLiteCommand(con)
+                cmd.CommandText = "UPDATE `computers_desc` SET `giveTo`='" & EmprunterName.Text & "', `gived`=" & BooleanToNumeric(EmpruntCheckBox.Checked) & " WHERE id='" & NewIDBox.Text & "';"
+                If cmd.ExecuteNonQuery() <> 1 Then MsgBox("Erreur inconnue au niveau de la base de données !", 16, "Defaillance générale !") : End
+                cmd.CommandText = "UPDATE `computers_progress` SET `hardware_complete`=" & BooleanToNumeric(HWCheck.Checked) & ", `os_complete`=" & BooleanToNumeric(OSCheck.Checked) & ", `drivers_complete`=" & BooleanToNumeric(DrvCheck.Checked) & ", `activate_complete`=" & BooleanToNumeric(ActivateCheck.Checked) & ", `soft_complete`=" & BooleanToNumeric(SoftCheck.Checked) & ", `arch`=" & (ProcArchCmbBox.SelectedIndex + 1) & ", `ram`=" & (RAMCmbBox.SelectedIndex + 1) & ", `os`=" & (OSCmbBox.SelectedIndex + 1) & " WHERE id='" & NewIDBox.Text & "';"
+                If cmd.ExecuteNonQuery() <> 1 Then MsgBox("Erreur inconnue au niveau de la base de données !", 16, "Defaillance générale !") : End
+                con.Close()
+            End Using
+            Main.StatusLabel.Text = "Ordinateur enregistré avec succès !"
+        Catch ex As Exception
+            Main.StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
+            MsgBox(ex.Message)
+        End Try
+        Me.Close()
     End Sub
 End Class

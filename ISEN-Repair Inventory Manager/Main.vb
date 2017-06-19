@@ -362,5 +362,8 @@ Public Class Main
         editForm = New EditSpecs(IDBox.Text, NameBox.Text, EtatBox.Text, GivenByBox.Text, SerieCheckBox.Checked, DetailsBox.Text, EmpruntCheckBox.Checked, EmprunterName.Text, HWCheck.Checked, OSCheck.Checked, DrvCheck.Checked, ActivateCheck.Checked, SoftCheck.Checked, ArchBox.Text, MemBox.Text, OSBox.Text)
         editForm.ShowDialog()
         editForm = Nothing
+        Dim tempStor As String = IDBox.Text
+        IDBox.Text = Nothing
+        IDBox.Text = tempStor
     End Sub
 End Class
