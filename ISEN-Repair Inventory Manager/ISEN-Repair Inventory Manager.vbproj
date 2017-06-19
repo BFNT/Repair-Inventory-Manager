@@ -112,6 +112,12 @@
     <Compile Include="AddMachine.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EditSpecs.Designer.vb">
+      <DependentUpon>EditSpecs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditSpecs.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="IDGenerator.Designer.vb">
       <DependentUpon>IDGenerator.vb</DependentUpon>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddMachine.resx">
       <DependentUpon>AddMachine.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditSpecs.resx">
+      <DependentUpon>EditSpecs.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IDGenerator.resx">
       <DependentUpon>IDGenerator.vb</DependentUpon>

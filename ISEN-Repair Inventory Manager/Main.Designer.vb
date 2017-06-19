@@ -25,6 +25,7 @@ Partial Class Main
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.AddComputerToolMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GénérerDesIDsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
@@ -59,7 +60,6 @@ Partial Class Main
         Me.OSBox = New System.Windows.Forms.TextBox()
         Me.ArchBox = New System.Windows.Forms.TextBox()
         Me.EditButton = New System.Windows.Forms.Button()
-        Me.GénérerDesIDsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -81,6 +81,12 @@ Partial Class Main
         Me.AddComputerToolMenuItem.Name = "AddComputerToolMenuItem"
         Me.AddComputerToolMenuItem.Size = New System.Drawing.Size(93, 20)
         Me.AddComputerToolMenuItem.Text = "Ajouter un PC"
+        '
+        'GénérerDesIDsToolStripMenuItem
+        '
+        Me.GénérerDesIDsToolStripMenuItem.Name = "GénérerDesIDsToolStripMenuItem"
+        Me.GénérerDesIDsToolStripMenuItem.Size = New System.Drawing.Size(100, 20)
+        Me.GénérerDesIDsToolStripMenuItem.Text = "Générer des IDs"
         '
         'AboutToolMenuItem
         '
@@ -125,6 +131,7 @@ Partial Class Main
         'SendOutButton
         '
         Me.SendOutButton.BackColor = System.Drawing.Color.Green
+        Me.SendOutButton.Enabled = False
         Me.SendOutButton.Location = New System.Drawing.Point(701, 343)
         Me.SendOutButton.Name = "SendOutButton"
         Me.SendOutButton.Size = New System.Drawing.Size(156, 23)
@@ -136,6 +143,7 @@ Partial Class Main
         'TrashButton
         '
         Me.TrashButton.BackColor = System.Drawing.Color.Firebrick
+        Me.TrashButton.Enabled = False
         Me.TrashButton.ForeColor = System.Drawing.Color.White
         Me.TrashButton.Location = New System.Drawing.Point(361, 343)
         Me.TrashButton.Name = "TrashButton"
@@ -427,6 +435,7 @@ Partial Class Main
         'EditButton
         '
         Me.EditButton.BackColor = System.Drawing.Color.Gold
+        Me.EditButton.Enabled = False
         Me.EditButton.Location = New System.Drawing.Point(523, 343)
         Me.EditButton.Name = "EditButton"
         Me.EditButton.Size = New System.Drawing.Size(172, 23)
@@ -434,12 +443,6 @@ Partial Class Main
         Me.EditButton.TabStop = False
         Me.EditButton.Text = "Editer le suivi"
         Me.EditButton.UseVisualStyleBackColor = False
-        '
-        'GénérerDesIDsToolStripMenuItem
-        '
-        Me.GénérerDesIDsToolStripMenuItem.Name = "GénérerDesIDsToolStripMenuItem"
-        Me.GénérerDesIDsToolStripMenuItem.Size = New System.Drawing.Size(100, 20)
-        Me.GénérerDesIDsToolStripMenuItem.Text = "Générer des IDs"
         '
         'Main
         '

@@ -182,45 +182,7 @@ Public Class Main
     End Sub
 
     Private Sub InvList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles InvList.SelectedIndexChanged
-        Dim dtr As SQLiteDataReader
-        Dim entriesRow As DataRow = Nothing
-
-        Try
-            StatusLabel.Text = "Récupération des données depuis la base SQLite..."
-            Using con As New SQLiteConnection("URI=file:db.sqlite")
-                con.Open()
-                Using cmd As New SQLiteCommand(con)
-                    cmd.CommandText = "SELECT * FROM computers_desc WHERE id=" & idList(InvList.SelectedIndex) & ";"
-                    dtr = cmd.ExecuteReader()
-                    While dtr.Read()
-                        IDBox.Text = dtr.GetString(0)
-                        manualID_selected = True
-                        NameBox.Text = dtr.GetString(1)
-                        If dtr.GetInt32(2) = 0 Then
-                            EtatBox.Text = "R.I.P"
-                        ElseIf dtr.GetInt32(2) = 1 Then
-                            EtatBox.Text = "Peu faire l'affaire"
-                        ElseIf dtr.GetInt32(2) = 2 Then
-                            EtatBox.Text = "En état"
-                        ElseIf dtr.GetInt32(2) = 3 Then
-                            EtatBox.Text = "Neuf"
-                        End If
-                        SerieCheckBox.Checked = dtr.GetBoolean(3)
-                        DetailsBox.Text = Replace(dtr.GetString(4), "_*_", "'")
-                        EmpruntCheckBox.Checked = dtr.GetBoolean(5)
-                        EmprunterName.Text = dtr.GetString(6)
-                        GivenByBox.Text = dtr.GetString(7)
-                        RequestComputerProgress(IDBox.Text)
-                    End While
-                End Using
-                con.Close()
-            End Using
-
-            StatusLabel.Text = "Récupération avec succés de la base SQLite."
-        Catch ex As Exception
-            StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
-            MsgBox(ex.Message)
-        End Try
+        IDBox.Text = idList(InvList.SelectedIndex)
     End Sub
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AboutToolMenuItem.Click
@@ -263,6 +225,8 @@ Public Class Main
                         While dtr.Read()
                             id_found = True
                             manualID_selected = True
+                            TrashButton.Enabled = True
+                            EditButton.Enabled = True
                             StatusLabel.Text = "ID trouvé !"
                             NameBox.Text = dtr.GetString(1)
                             If dtr.GetInt32(2) = 0 Then
@@ -293,7 +257,7 @@ Public Class Main
     End Sub
 
     Private Sub IDBox_MouseClick(sender As Object, e As MouseEventArgs) Handles IDBox.MouseClick
-        If manualID_selected Then IDBox.Clear() : manualID_selected = False
+        If manualID_selected Then IDBox.Clear() : manualID_selected = False : TrashButton.Enabled = False : EditButton.Enabled = False
     End Sub
 
     Private Sub RequestComputerProgress(machineID As String)
@@ -391,5 +355,12 @@ Public Class Main
         idGeneratorForm = New IDGenerator()
         idGeneratorForm.Show()
         idGeneratorForm = Nothing
+    End Sub
+
+    Private Sub EditButton_Click(sender As Object, e As EventArgs) Handles EditButton.Click
+        Dim editForm As EditSpecs
+        editForm = New EditSpecs(IDBox.Text, NameBox.Text, EtatBox.Text, GivenByBox.Text, SerieCheckBox.Checked, DetailsBox.Text, EmpruntCheckBox.Checked, EmprunterName.Text, HWCheck.Checked, OSCheck.Checked, DrvCheck.Checked, ActivateCheck.Checked, SoftCheck.Checked, ArchBox.Text, MemBox.Text, OSBox.Text)
+        editForm.ShowDialog()
+        editForm = Nothing
     End Sub
 End Class
