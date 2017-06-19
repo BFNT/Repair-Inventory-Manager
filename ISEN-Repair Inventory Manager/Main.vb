@@ -206,7 +206,7 @@ Public Class Main
                             EtatBox.Text = "Neuf"
                         End If
                         SerieCheckBox.Checked = dtr.GetBoolean(3)
-                        DetailsBox.Text = dtr.GetString(4)
+                        DetailsBox.Text = Replace(dtr.GetString(4), "_*_", "'")
                         EmpruntCheckBox.Checked = dtr.GetBoolean(5)
                         EmprunterName.Text = dtr.GetString(6)
                         GivenByBox.Text = dtr.GetString(7)
@@ -275,7 +275,7 @@ Public Class Main
                                 EtatBox.Text = "Neuf"
                             End If
                             SerieCheckBox.Checked = dtr.GetBoolean(3)
-                            DetailsBox.Text = dtr.GetString(4)
+                            DetailsBox.Text = Replace(dtr.GetString(4), "_*_", "'")
                             EmpruntCheckBox.Checked = dtr.GetBoolean(5)
                             EmprunterName.Text = dtr.GetString(6)
                             GivenByBox.Text = dtr.GetString(7)

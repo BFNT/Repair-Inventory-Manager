@@ -33,7 +33,7 @@ Public Class AddMachine
             Using con As New SQLiteConnection("URI=file:db.sqlite")
                 con.Open()
                 Dim cmd As New SQLiteCommand(con)
-                cmd.CommandText = "INSERT INTO computers_desc VALUES ('" & NewIDBox.Text & "','" & NewNameBox.Text & "'," & NewEtatBox.SelectedIndex & "," & CheckToNumeric(NewSerieCheckBox) & ",'" & NewDetailsBox.Text & "',0,'N/A','" & NewGivenByBox.Text & "');"
+                cmd.CommandText = "INSERT INTO computers_desc VALUES ('" & NewIDBox.Text & "','" & NewNameBox.Text & "'," & NewEtatBox.SelectedIndex & "," & CheckToNumeric(NewSerieCheckBox) & ",'" & Replace(NewDetailsBox.Text, "'", "_*_") & "',0,'N/A','" & NewGivenByBox.Text & "');"
                 If cmd.ExecuteNonQuery() <> 1 Then MsgBox("Erreur inconnue au niveau de la base de données !", 16, "Defaillance générale !") : End
                 cmd.CommandText = "INSERT INTO computers_progress VALUES ('" & NewIDBox.Text & "',0,0,0,0,0,1,1,1);"
                 If cmd.ExecuteNonQuery() <> 1 Then MsgBox("Erreur inconnue au niveau de la base de données !", 16, "Defaillance générale !") : End
