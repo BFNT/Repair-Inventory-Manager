@@ -219,7 +219,7 @@ Public Class Main
                 Using con As New SQLiteConnection("URI=file:db.sqlite")
                     con.Open()
                     Using cmd As New SQLiteCommand(con)
-                        cmd.CommandText = "SELECT * FROM computers_desc WHERE id=" & IDBox.Text & ";"
+                        cmd.CommandText = "SELECT * FROM computers_desc WHERE id='" & IDBox.Text & "';"
                         dtr = cmd.ExecuteReader()
                         Dim id_found As Boolean = False
                         While dtr.Read()
@@ -267,7 +267,7 @@ Public Class Main
             Using con As New SQLiteConnection("URI=file:db.sqlite")
                 con.Open()
                 Using cmd As New SQLiteCommand(con)
-                    cmd.CommandText = "SELECT * FROM computers_progress WHERE id=" & machineID & ";"
+                    cmd.CommandText = "SELECT * FROM computers_progress WHERE id='" & machineID & "';"
                     dtr = cmd.ExecuteReader()
                     While dtr.Read()
                         HWCheck.Checked = dtr.GetBoolean(1)
@@ -347,6 +347,7 @@ Public Class Main
     End Sub
 
     Private Sub IDBox_KeyDown(sender As Object, e As KeyEventArgs) Handles IDBox.KeyDown
+        If IDBox.Text.Length() = 10 And Not e.KeyCode.ToString() = "Return" Then IDBox.Text = ""
         IDBox.Text = IDBox.Text & ScannerInterpreterFRLayout(e)
     End Sub
 

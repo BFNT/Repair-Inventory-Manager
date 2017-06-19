@@ -78,7 +78,7 @@ Partial Class EditSpecs
         Me.OSCmbBox.Location = New System.Drawing.Point(47, 41)
         Me.OSCmbBox.Name = "OSCmbBox"
         Me.OSCmbBox.Size = New System.Drawing.Size(315, 21)
-        Me.OSCmbBox.TabIndex = 16
+        Me.OSCmbBox.TabIndex = 7
         '
         'RAMCmbBox
         '
@@ -87,7 +87,7 @@ Partial Class EditSpecs
         Me.RAMCmbBox.Location = New System.Drawing.Point(294, 18)
         Me.RAMCmbBox.Name = "RAMCmbBox"
         Me.RAMCmbBox.Size = New System.Drawing.Size(68, 21)
-        Me.RAMCmbBox.TabIndex = 15
+        Me.RAMCmbBox.TabIndex = 5
         '
         'ProcArchCmbBox
         '
@@ -96,7 +96,7 @@ Partial Class EditSpecs
         Me.ProcArchCmbBox.Location = New System.Drawing.Point(188, 18)
         Me.ProcArchCmbBox.Name = "ProcArchCmbBox"
         Me.ProcArchCmbBox.Size = New System.Drawing.Size(57, 21)
-        Me.ProcArchCmbBox.TabIndex = 14
+        Me.ProcArchCmbBox.TabIndex = 4
         '
         'Label7
         '
@@ -122,8 +122,7 @@ Partial Class EditSpecs
         Me.ActivateCheck.Location = New System.Drawing.Point(72, 67)
         Me.ActivateCheck.Name = "ActivateCheck"
         Me.ActivateCheck.Size = New System.Drawing.Size(73, 17)
-        Me.ActivateCheck.TabIndex = 4
-        Me.ActivateCheck.TabStop = False
+        Me.ActivateCheck.TabIndex = 9
         Me.ActivateCheck.Text = "Activation"
         Me.ActivateCheck.UseVisualStyleBackColor = True
         '
@@ -133,8 +132,7 @@ Partial Class EditSpecs
         Me.SoftCheck.Location = New System.Drawing.Point(151, 67)
         Me.SoftCheck.Name = "SoftCheck"
         Me.SoftCheck.Size = New System.Drawing.Size(68, 17)
-        Me.SoftCheck.TabIndex = 3
-        Me.SoftCheck.TabStop = False
+        Me.SoftCheck.TabIndex = 10
         Me.SoftCheck.Text = "Software"
         Me.SoftCheck.UseVisualStyleBackColor = True
         '
@@ -144,8 +142,7 @@ Partial Class EditSpecs
         Me.DrvCheck.Location = New System.Drawing.Point(7, 67)
         Me.DrvCheck.Name = "DrvCheck"
         Me.DrvCheck.Size = New System.Drawing.Size(59, 17)
-        Me.DrvCheck.TabIndex = 2
-        Me.DrvCheck.TabStop = False
+        Me.DrvCheck.TabIndex = 8
         Me.DrvCheck.Text = "Drivers"
         Me.DrvCheck.UseVisualStyleBackColor = True
         '
@@ -155,8 +152,7 @@ Partial Class EditSpecs
         Me.OSCheck.Location = New System.Drawing.Point(7, 43)
         Me.OSCheck.Name = "OSCheck"
         Me.OSCheck.Size = New System.Drawing.Size(44, 17)
-        Me.OSCheck.TabIndex = 1
-        Me.OSCheck.TabStop = False
+        Me.OSCheck.TabIndex = 6
         Me.OSCheck.Text = "O.S"
         Me.OSCheck.UseVisualStyleBackColor = True
         '
@@ -166,8 +162,7 @@ Partial Class EditSpecs
         Me.HWCheck.Location = New System.Drawing.Point(7, 20)
         Me.HWCheck.Name = "HWCheck"
         Me.HWCheck.Size = New System.Drawing.Size(72, 17)
-        Me.HWCheck.TabIndex = 0
-        Me.HWCheck.TabStop = False
+        Me.HWCheck.TabIndex = 3
         Me.HWCheck.Text = "Hardware"
         Me.HWCheck.UseVisualStyleBackColor = True
         '
@@ -246,8 +241,7 @@ Partial Class EditSpecs
         Me.EmprunterName.Location = New System.Drawing.Point(109, 166)
         Me.EmprunterName.Name = "EmprunterName"
         Me.EmprunterName.Size = New System.Drawing.Size(150, 20)
-        Me.EmprunterName.TabIndex = 11
-        Me.EmprunterName.TabStop = False
+        Me.EmprunterName.TabIndex = 2
         '
         'EmpruntCheckBox
         '
@@ -255,8 +249,7 @@ Partial Class EditSpecs
         Me.EmpruntCheckBox.Location = New System.Drawing.Point(5, 168)
         Me.EmpruntCheckBox.Name = "EmpruntCheckBox"
         Me.EmpruntCheckBox.Size = New System.Drawing.Size(98, 17)
-        Me.EmpruntCheckBox.TabIndex = 10
-        Me.EmpruntCheckBox.TabStop = False
+        Me.EmpruntCheckBox.TabIndex = 1
         Me.EmpruntCheckBox.Text = "Emprunté  par :"
         Me.EmpruntCheckBox.UseVisualStyleBackColor = True
         '
@@ -267,8 +260,7 @@ Partial Class EditSpecs
         Me.DetailsBox.Name = "DetailsBox"
         Me.DetailsBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DetailsBox.Size = New System.Drawing.Size(383, 84)
-        Me.DetailsBox.TabIndex = 9
-        Me.DetailsBox.TabStop = False
+        Me.DetailsBox.TabIndex = 0
         '
         'Label5
         '
@@ -320,7 +312,7 @@ Partial Class EditSpecs
         Me.SaveEditButton.Location = New System.Drawing.Point(166, 302)
         Me.SaveEditButton.Name = "SaveEditButton"
         Me.SaveEditButton.Size = New System.Drawing.Size(194, 44)
-        Me.SaveEditButton.TabIndex = 7
+        Me.SaveEditButton.TabIndex = 11
         Me.SaveEditButton.Text = "Enregistrer"
         Me.SaveEditButton.UseVisualStyleBackColor = True
         '

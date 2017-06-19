@@ -126,7 +126,8 @@ Partial Class Main
         Me.InvList.Name = "InvList"
         Me.InvList.ScrollAlwaysVisible = True
         Me.InvList.Size = New System.Drawing.Size(324, 316)
-        Me.InvList.TabIndex = 2
+        Me.InvList.TabIndex = 1
+        Me.InvList.TabStop = False
         '
         'SendOutButton
         '
@@ -266,7 +267,8 @@ Partial Class Main
         '
         'IDBox
         '
-        Me.IDBox.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite
+        Me.IDBox.AllowDrop = True
+        Me.IDBox.AsciiOnly = True
         Me.IDBox.Location = New System.Drawing.Point(37, 16)
         Me.IDBox.Mask = "9999999999"
         Me.IDBox.Name = "IDBox"

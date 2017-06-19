@@ -28,8 +28,4 @@ generate:
     Private Sub GenerateNewIDButton_Click(sender As Object, e As EventArgs) Handles GenerateNewIDButton.Click
         GenerateNewIDBarcode()
     End Sub
-
-    Private Sub CloseButtonNewID_Click(sender As Object, e As EventArgs) Handles CloseButtonNewID.Click
-        Me.Close()
-    End Sub
 End Class

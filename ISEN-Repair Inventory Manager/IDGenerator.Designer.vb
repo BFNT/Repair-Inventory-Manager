@@ -25,7 +25,6 @@ Partial Class IDGenerator
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(IDGenerator))
         Me.Barcode1 = New IDAutomation.Windows.Forms.LinearBarCode.Barcode()
         Me.GenerateNewIDButton = New System.Windows.Forms.Button()
-        Me.CloseButtonNewID = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.newRandomIDBox = New System.Windows.Forms.MaskedTextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -73,7 +72,8 @@ Partial Class IDGenerator
         Me.Barcode1.Size = New System.Drawing.Size(171, 74)
         Me.Barcode1.SuppSeparationCM = 0.5!
         Me.Barcode1.SymbologyID = IDAutomation.Windows.Forms.LinearBarCode.Symbologies.Code39
-        Me.Barcode1.TabIndex = 0
+        Me.Barcode1.TabIndex = 100
+        Me.Barcode1.TabStop = False
         Me.Barcode1.TextFontColor = System.Drawing.Color.Black
         Me.Barcode1.TextMarginCM = 0.1!
         Me.Barcode1.TopMarginCM = 0.2!
@@ -86,20 +86,10 @@ Partial Class IDGenerator
         '
         Me.GenerateNewIDButton.Location = New System.Drawing.Point(12, 171)
         Me.GenerateNewIDButton.Name = "GenerateNewIDButton"
-        Me.GenerateNewIDButton.Size = New System.Drawing.Size(198, 23)
-        Me.GenerateNewIDButton.TabIndex = 1
+        Me.GenerateNewIDButton.Size = New System.Drawing.Size(198, 39)
+        Me.GenerateNewIDButton.TabIndex = 0
         Me.GenerateNewIDButton.Text = "Générer nouvel ID"
         Me.GenerateNewIDButton.UseVisualStyleBackColor = True
-        '
-        'CloseButtonNewID
-        '
-        Me.CloseButtonNewID.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.CloseButtonNewID.Location = New System.Drawing.Point(51, 196)
-        Me.CloseButtonNewID.Name = "CloseButtonNewID"
-        Me.CloseButtonNewID.Size = New System.Drawing.Size(126, 23)
-        Me.CloseButtonNewID.TabIndex = 2
-        Me.CloseButtonNewID.Text = "Fermer"
-        Me.CloseButtonNewID.UseVisualStyleBackColor = True
         '
         'PictureBox1
         '
@@ -115,29 +105,25 @@ Partial Class IDGenerator
         '
         Me.newRandomIDBox.AllowDrop = True
         Me.newRandomIDBox.AsciiOnly = True
-        Me.newRandomIDBox.BeepOnError = True
         Me.newRandomIDBox.Location = New System.Drawing.Point(64, 145)
         Me.newRandomIDBox.Mask = "9999999999"
         Me.newRandomIDBox.Name = "newRandomIDBox"
         Me.newRandomIDBox.Size = New System.Drawing.Size(100, 20)
-        Me.newRandomIDBox.TabIndex = 4
+        Me.newRandomIDBox.TabIndex = 1
         Me.newRandomIDBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'IDGenerator
         '
+        Me.AcceptButton = Me.GenerateNewIDButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.CancelButton = Me.CloseButtonNewID
-        Me.ClientSize = New System.Drawing.Size(224, 226)
+        Me.ClientSize = New System.Drawing.Size(224, 217)
         Me.Controls.Add(Me.newRandomIDBox)
-        Me.Controls.Add(Me.CloseButtonNewID)
         Me.Controls.Add(Me.GenerateNewIDButton)
         Me.Controls.Add(Me.Barcode1)
         Me.Controls.Add(Me.PictureBox1)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(240, 265)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(240, 265)
         Me.Name = "IDGenerator"
         Me.ShowIcon = False
         Me.Text = "Générer de nouveaux IDs"
@@ -149,7 +135,6 @@ Partial Class IDGenerator
 
     Friend WithEvents Barcode1 As Barcode
     Friend WithEvents GenerateNewIDButton As Button
-    Friend WithEvents CloseButtonNewID As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents newRandomIDBox As MaskedTextBox
 End Class

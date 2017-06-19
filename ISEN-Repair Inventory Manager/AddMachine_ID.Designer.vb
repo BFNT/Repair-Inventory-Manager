@@ -60,7 +60,8 @@ Partial Class AddMachine_ID
         Me.AddMachine_ID_CancelButton.Location = New System.Drawing.Point(146, 132)
         Me.AddMachine_ID_CancelButton.Name = "AddMachine_ID_CancelButton"
         Me.AddMachine_ID_CancelButton.Size = New System.Drawing.Size(75, 23)
-        Me.AddMachine_ID_CancelButton.TabIndex = 2
+        Me.AddMachine_ID_CancelButton.TabIndex = 0
+        Me.AddMachine_ID_CancelButton.TabStop = False
         Me.AddMachine_ID_CancelButton.Text = "Annuler"
         Me.AddMachine_ID_CancelButton.UseVisualStyleBackColor = True
         '
@@ -70,6 +71,7 @@ Partial Class AddMachine_ID
         Me.NextButton.Name = "NextButton"
         Me.NextButton.Size = New System.Drawing.Size(75, 23)
         Me.NextButton.TabIndex = 1
+        Me.NextButton.TabStop = False
         Me.NextButton.Text = "Suivant"
         Me.NextButton.UseVisualStyleBackColor = True
         '
@@ -90,6 +92,7 @@ Partial Class AddMachine_ID
         Me.RandomIDButton.Name = "RandomIDButton"
         Me.RandomIDButton.Size = New System.Drawing.Size(59, 23)
         Me.RandomIDButton.TabIndex = 102
+        Me.RandomIDButton.TabStop = False
         Me.RandomIDButton.Text = "Aléatoire"
         Me.RandomIDButton.UseVisualStyleBackColor = True
         '
