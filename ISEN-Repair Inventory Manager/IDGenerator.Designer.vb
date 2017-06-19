@@ -27,6 +27,7 @@ Partial Class IDGenerator
         Me.GenerateNewIDButton = New System.Windows.Forms.Button()
         Me.CloseButtonNewID = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.newRandomIDBox = New System.Windows.Forms.MaskedTextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -69,7 +70,7 @@ Partial Class IDGenerator
         Me.Barcode1.RotationAngle = IDAutomation.Windows.Forms.LinearBarCode.RotationAngles.Zero_Degrees
         Me.Barcode1.ShowText = True
         Me.Barcode1.ShowTextLocation = IDAutomation.Windows.Forms.LinearBarCode.HRTextPositions.Bottom
-        Me.Barcode1.Size = New System.Drawing.Size(171, 75)
+        Me.Barcode1.Size = New System.Drawing.Size(171, 74)
         Me.Barcode1.SuppSeparationCM = 0.5!
         Me.Barcode1.SymbologyID = IDAutomation.Windows.Forms.LinearBarCode.Symbologies.Code39
         Me.Barcode1.TabIndex = 0
@@ -79,11 +80,11 @@ Partial Class IDGenerator
         Me.Barcode1.UPCESystem = "0"
         Me.Barcode1.WhiteBarIncrease = 0!
         Me.Barcode1.XDimensionCM = 0.0298!
-        Me.Barcode1.XDimensionMILS = 11.7715!
+        Me.Barcode1.XDimensionMILS = 11.7714!
         '
         'GenerateNewIDButton
         '
-        Me.GenerateNewIDButton.Location = New System.Drawing.Point(12, 145)
+        Me.GenerateNewIDButton.Location = New System.Drawing.Point(12, 171)
         Me.GenerateNewIDButton.Name = "GenerateNewIDButton"
         Me.GenerateNewIDButton.Size = New System.Drawing.Size(198, 23)
         Me.GenerateNewIDButton.TabIndex = 1
@@ -93,7 +94,7 @@ Partial Class IDGenerator
         'CloseButtonNewID
         '
         Me.CloseButtonNewID.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.CloseButtonNewID.Location = New System.Drawing.Point(51, 170)
+        Me.CloseButtonNewID.Location = New System.Drawing.Point(51, 196)
         Me.CloseButtonNewID.Name = "CloseButtonNewID"
         Me.CloseButtonNewID.Size = New System.Drawing.Size(126, 23)
         Me.CloseButtonNewID.TabIndex = 2
@@ -110,25 +111,39 @@ Partial Class IDGenerator
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
         '
+        'newRandomIDBox
+        '
+        Me.newRandomIDBox.AllowDrop = True
+        Me.newRandomIDBox.AsciiOnly = True
+        Me.newRandomIDBox.BeepOnError = True
+        Me.newRandomIDBox.Location = New System.Drawing.Point(64, 145)
+        Me.newRandomIDBox.Mask = "9999999999"
+        Me.newRandomIDBox.Name = "newRandomIDBox"
+        Me.newRandomIDBox.Size = New System.Drawing.Size(100, 20)
+        Me.newRandomIDBox.TabIndex = 4
+        Me.newRandomIDBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'IDGenerator
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.CloseButtonNewID
-        Me.ClientSize = New System.Drawing.Size(224, 203)
+        Me.ClientSize = New System.Drawing.Size(224, 226)
+        Me.Controls.Add(Me.newRandomIDBox)
         Me.Controls.Add(Me.CloseButtonNewID)
         Me.Controls.Add(Me.GenerateNewIDButton)
         Me.Controls.Add(Me.Barcode1)
         Me.Controls.Add(Me.PictureBox1)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(240, 242)
+        Me.MaximumSize = New System.Drawing.Size(240, 265)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(240, 242)
+        Me.MinimumSize = New System.Drawing.Size(240, 265)
         Me.Name = "IDGenerator"
         Me.ShowIcon = False
         Me.Text = "Générer de nouveaux IDs"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -136,4 +151,5 @@ Partial Class IDGenerator
     Friend WithEvents GenerateNewIDButton As Button
     Friend WithEvents CloseButtonNewID As Button
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents newRandomIDBox As MaskedTextBox
 End Class

@@ -27,6 +27,7 @@ Partial Class AddMachine_ID
         Me.AddMachine_ID_CancelButton = New System.Windows.Forms.Button()
         Me.NextButton = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.RandomIDButton = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -82,6 +83,16 @@ Partial Class AddMachine_ID
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Nouvel ID"
         '
+        'RandomIDButton
+        '
+        Me.RandomIDButton.Enabled = False
+        Me.RandomIDButton.Location = New System.Drawing.Point(247, 88)
+        Me.RandomIDButton.Name = "RandomIDButton"
+        Me.RandomIDButton.Size = New System.Drawing.Size(59, 23)
+        Me.RandomIDButton.TabIndex = 102
+        Me.RandomIDButton.Text = "Aléatoire"
+        Me.RandomIDButton.UseVisualStyleBackColor = True
+        '
         'AddMachine_ID
         '
         Me.AcceptButton = Me.NextButton
@@ -89,6 +100,7 @@ Partial Class AddMachine_ID
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CausesValidation = False
         Me.ClientSize = New System.Drawing.Size(360, 167)
+        Me.Controls.Add(Me.RandomIDButton)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.NextButton)
         Me.Controls.Add(Me.AddMachine_ID_CancelButton)
@@ -112,4 +124,5 @@ Partial Class AddMachine_ID
     Friend WithEvents AddMachine_ID_CancelButton As Button
     Friend WithEvents NextButton As Button
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents RandomIDButton As Button
 End Class

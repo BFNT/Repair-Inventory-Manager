@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SQLite
+Imports System.Text
 
 Public Class Main
     Dim manualID_selected As Boolean = False
@@ -9,6 +10,9 @@ Public Class Main
         ListAllInv()
     End Sub
 
+    ''' <summary>
+    ''' Function to check if app is running for the first time
+    ''' </summary>
     Private Sub CheckIfFirstRun()
         If Not My.Computer.FileSystem.FileExists("db.sqlite") Then
             If MsgBox("La base de données SQLite est introuvable ou inaccesible, souhaitez-vous la régénérer ?", 4161, "Base SQLite absente ou inacessible") = 1 Then
@@ -19,6 +23,11 @@ Public Class Main
         End If
     End Sub
 
+    ''' <summary>
+    ''' Check if an ID is already used in the SQLite DB
+    ''' </summary>
+    ''' <param name="idToCheck">ID to check</param>
+    ''' <returns>True = ID already used</returns>
     Public Function CheckIDAlreadyUsed(idToCheck As String) As Boolean
         Dim dtr As SQLiteDataReader
 
@@ -44,6 +53,58 @@ Public Class Main
         Return True
     End Function
 
+    ''' <summary>
+    ''' ID Generator with 10 digits from 0 to 9 returned with String
+    ''' </summary>
+    ''' <returns>String correspond to ID generate</returns>
+    Public Function GenerateRandomID() As String
+        Dim s As String = "0123456789"
+        Dim r As New Random
+        Dim sb As New StringBuilder
+
+        sb.Clear()
+        For i As Integer = 1 To 10
+            Dim idx As Integer = r.Next(0, 9)
+            sb.Append(s.Substring(idx, 1))
+        Next
+
+        Return sb.ToString()
+    End Function
+
+    ''' <summary>
+    ''' Convert US key from barcode scanner to FR key
+    ''' </summary>
+    ''' <param name="scanKey">Event of keyDown</param>
+    ''' <returns>Converted string key</returns>
+    Public Function ScannerInterpreterFRLayout(scanKey As KeyEventArgs) As String
+        Select Case scanKey.KeyCode.ToString()
+            Case "D0"
+                Return "0"
+            Case "D1"
+                Return "1"
+            Case "D2"
+                Return "2"
+            Case "D3"
+                Return "3"
+            Case "D4"
+                Return "4"
+            Case "D5"
+                Return "5"
+            Case "D6"
+                Return "6"
+            Case "D7"
+                Return "7"
+            Case "D8"
+                Return "8"
+            Case "D9"
+                Return "9"
+        End Select
+        Return Nothing
+    End Function
+
+    ''' <summary>
+    ''' Construct the basic structure of SQLite DB
+    ''' </summary>
     Private Sub RegenerateDB()
         Dim genesis_seq As String = "
             CREATE TABLE `computers_desc` (
@@ -88,6 +149,9 @@ Public Class Main
         End Try
     End Sub
 
+    ''' <summary>
+    ''' Liste all object from DB into list dialog
+    ''' </summary>
     Public Sub ListAllInv()
         idList.Clear()
         Dim dtr As SQLiteDataReader
@@ -319,28 +383,7 @@ Public Class Main
     End Sub
 
     Private Sub IDBox_KeyDown(sender As Object, e As KeyEventArgs) Handles IDBox.KeyDown
-        Select Case e.KeyCode.ToString()
-            Case "D0"
-                IDBox.Text = IDBox.Text & "0"
-            Case "D1"
-                IDBox.Text = IDBox.Text & "1"
-            Case "D2"
-                IDBox.Text = IDBox.Text & "2"
-            Case "D3"
-                IDBox.Text = IDBox.Text & "3"
-            Case "D4"
-                IDBox.Text = IDBox.Text & "4"
-            Case "D5"
-                IDBox.Text = IDBox.Text & "5"
-            Case "D6"
-                IDBox.Text = IDBox.Text & "6"
-            Case "D7"
-                IDBox.Text = IDBox.Text & "7"
-            Case "D8"
-                IDBox.Text = IDBox.Text & "8"
-            Case "D9"
-                IDBox.Text = IDBox.Text & "9"
-        End Select
+        IDBox.Text = IDBox.Text & ScannerInterpreterFRLayout(e)
     End Sub
 
     Private Sub GénérerDesIDsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GénérerDesIDsToolStripMenuItem.Click

@@ -24,4 +24,12 @@
             NextButton.Enabled = False
         End If
     End Sub
+
+    Private Sub RandomIDButton_Click(sender As Object, e As EventArgs) Handles RandomIDButton.Click
+        newIDBox.Text = Main.GenerateRandomID()
+    End Sub
+
+    Private Sub newIDBox_KeyDown(sender As Object, e As KeyEventArgs) Handles newIDBox.KeyDown
+        newIDBox.Text = newIDBox.Text & Main.ScannerInterpreterFRLayout(e)
+    End Sub
 End Class
