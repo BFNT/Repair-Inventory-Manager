@@ -13,7 +13,7 @@
         ' TODO: personnalisez les informations d'assembly de l'application dans le volet "Application" de la 
         '    boîte de dialogue Propriétés du projet (sous le menu "Projet").
         Me.LabelProductName.Text = My.Application.Info.ProductName
-        Me.LabelVersion.Text = String.Format("Version {0}", My.Application.Info.Version.ToString)
+        Me.LabelVersion.Text = String.Format("Version {0}.{1}", My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
         Me.LabelCopyright.Text = My.Application.Info.Copyright
         Me.LabelCompanyName.Text = My.Application.Info.CompanyName
         Me.TextBoxDescription.Text = My.Application.Info.Description

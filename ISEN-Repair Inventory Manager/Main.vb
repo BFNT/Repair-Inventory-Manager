@@ -52,7 +52,7 @@ Public Class Main
 	        `etat`	INTEGER NOT NULL DEFAULT 0,
         	`serial`	NUMERIC NOT NULL DEFAULT 0,
 	        `comms`	TEXT NOT NULL DEFAULT 'N/A',
-	        `gived`	INTEGER NOT NULL DEFAULT 0,
+	        `gived`	NUMERIC NOT NULL DEFAULT 0,
 	        `giveTo`	TEXT NOT NULL DEFAULT 'N/A',
 	        `getBy`	TEXT NOT NULL DEFAULT 'ISEN'
         );
@@ -141,9 +141,9 @@ Public Class Main
                         ElseIf dtr.GetInt32(2) = 3 Then
                             EtatBox.Text = "Neuf"
                         End If
-                        If dtr.GetInt32(3) = 1 Then SerieCheckBox.Checked = True
+                        SerieCheckBox.Checked = dtr.GetBoolean(3)
                         DetailsBox.Text = dtr.GetString(4)
-                        If dtr.GetInt32(5) = 1 Then EmpruntCheckBox.Checked = True
+                        EmpruntCheckBox.Checked = dtr.GetBoolean(5)
                         EmprunterName.Text = dtr.GetString(6)
                         GivenByBox.Text = dtr.GetString(7)
                         RequestComputerProgress(IDBox.Text)
@@ -210,9 +210,9 @@ Public Class Main
                             ElseIf dtr.GetInt32(2) = 3 Then
                                 EtatBox.Text = "Neuf"
                             End If
-                            If dtr.GetInt32(3) = 1 Then SerieCheckBox.Checked = True
+                            SerieCheckBox.Checked = dtr.GetBoolean(3)
                             DetailsBox.Text = dtr.GetString(4)
-                            If dtr.GetInt32(5) = 1 Then EmpruntCheckBox.Checked = True
+                            EmpruntCheckBox.Checked = dtr.GetBoolean(5)
                             EmprunterName.Text = dtr.GetString(6)
                             GivenByBox.Text = dtr.GetString(7)
                             RequestComputerProgress(IDBox.Text)

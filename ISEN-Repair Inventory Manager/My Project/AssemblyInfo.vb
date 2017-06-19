@@ -10,7 +10,7 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("ISEN-Repair Inventory Manager")>
 <Assembly: AssemblyDescription("Soft de gestion et du suivi des ordinateurs de la Repair, les entrées et les sorties ainsi que les empruns.")>
-<Assembly: AssemblyCompany("by JackCarterSmith")>
+<Assembly: AssemblyCompany("by ARE Christopher (JackCarterSmith)")>
 <Assembly: AssemblyProduct("ISEN-Repair Inventory Manager")>
 <Assembly: AssemblyCopyright("Copyright ©  2017")>
 <Assembly: AssemblyTrademark("")>
