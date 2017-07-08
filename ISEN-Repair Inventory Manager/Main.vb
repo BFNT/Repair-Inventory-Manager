@@ -4,7 +4,7 @@ Imports System.Text
 Public Class Main
     Dim manualID_selected As Boolean = False
     Dim idList As New ArrayList
-    Dim log As New Logger
+    Public log As New Logger
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         log.Load()

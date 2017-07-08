@@ -7,7 +7,7 @@ Public Class Logger
 
     Public Sub Load()
         If Not My.Computer.FileSystem.DirectoryExists("logs") Then My.Computer.FileSystem.CreateDirectory("logs")
-        If Not My.Computer.FileSystem.FileExists(logFileName) Then File.WriteAllLines(logFileName, {"LOG FILE - " & DateTime.Now.ToString("dd/MM/yyyy"), "--------------------", "[INFO] Loading software"})
+        If Not My.Computer.FileSystem.FileExists(logFileName) Then File.WriteAllLines(logFileName, {"LOG FILE - " & DateTime.Now.ToString("dd/MM/yyyy"), "--------------------", "[" & DateTime.Now.ToString("HH:mm:ss") & "][INFO] Loading software"})
     End Sub
 
     Public Sub Info(str As String)

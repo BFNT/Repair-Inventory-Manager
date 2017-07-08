@@ -8,7 +8,7 @@ Public Class EditSpecs
         InitializeComponent()
 
         ' Ajoutez une initialisation quelconque après l'appel InitializeComponent().
-        NewIDBox.Text = id
+        IDBox.Text = id
         NameBox.Text = name
         EtatBox.Text = stat
         GivedByBox.Text = givedBy
@@ -68,13 +68,14 @@ Public Class EditSpecs
             Using con As New SQLiteConnection("URI=file:db.sqlite")
                 con.Open()
                 Dim cmd As New SQLiteCommand(con)
-                cmd.CommandText = "UPDATE `computers_desc` SET `giveTo`='" & EmprunterName.Text & "', `gived`=" & BooleanToNumeric(EmpruntCheckBox.Checked) & " WHERE id='" & NewIDBox.Text & "';"
+                cmd.CommandText = "UPDATE `computers_desc` SET `giveTo`='" & EmprunterName.Text & "', `gived`=" & BooleanToNumeric(EmpruntCheckBox.Checked) & " WHERE id='" & IDBox.Text & "';"
                 If cmd.ExecuteNonQuery() <> 1 Then MsgBox("Erreur inconnue au niveau de la base de données !", 16, "Defaillance générale !") : End
-                cmd.CommandText = "UPDATE `computers_progress` SET `hardware_complete`=" & BooleanToNumeric(HWCheck.Checked) & ", `os_complete`=" & BooleanToNumeric(OSCheck.Checked) & ", `drivers_complete`=" & BooleanToNumeric(DrvCheck.Checked) & ", `activate_complete`=" & BooleanToNumeric(ActivateCheck.Checked) & ", `soft_complete`=" & BooleanToNumeric(SoftCheck.Checked) & ", `arch`=" & (ProcArchCmbBox.SelectedIndex + 1) & ", `ram`=" & (RAMCmbBox.SelectedIndex + 1) & ", `os`=" & (OSCmbBox.SelectedIndex + 1) & " WHERE id='" & NewIDBox.Text & "';"
+                cmd.CommandText = "UPDATE `computers_progress` SET `hardware_complete`=" & BooleanToNumeric(HWCheck.Checked) & ", `os_complete`=" & BooleanToNumeric(OSCheck.Checked) & ", `drivers_complete`=" & BooleanToNumeric(DrvCheck.Checked) & ", `activate_complete`=" & BooleanToNumeric(ActivateCheck.Checked) & ", `soft_complete`=" & BooleanToNumeric(SoftCheck.Checked) & ", `arch`=" & (ProcArchCmbBox.SelectedIndex + 1) & ", `ram`=" & (RAMCmbBox.SelectedIndex + 1) & ", `os`=" & (OSCmbBox.SelectedIndex + 1) & " WHERE id='" & IDBox.Text & "';"
                 If cmd.ExecuteNonQuery() <> 1 Then MsgBox("Erreur inconnue au niveau de la base de données !", 16, "Defaillance générale !") : End
                 con.Close()
             End Using
             Main.StatusLabel.Text = "Ordinateur enregistré avec succès !"
+            Main.log.Info("Edited computer " & IDBox.Text)
         Catch ex As Exception
             Main.StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
             MsgBox(ex.Message)
