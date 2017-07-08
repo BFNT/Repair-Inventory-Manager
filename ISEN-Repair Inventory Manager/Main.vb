@@ -2,6 +2,8 @@
 Imports System.Text
 
 Public Class Main
+    Public Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+
     Dim manualID_selected As Boolean = False
     Dim idList As New ArrayList
 

@@ -29,14 +29,18 @@ Partial Class IDGenerator
         Me.newRandomIDBox = New System.Windows.Forms.MaskedTextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.IDListBox = New System.Windows.Forms.ListBox()
-        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
-        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
-        Me.PrintPreviewControl1 = New System.Windows.Forms.PrintPreviewControl()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PreviewButton = New System.Windows.Forms.Button()
+        Me.GenerateMultiIDButton = New System.Windows.Forms.Button()
         Me.PrintButton = New System.Windows.Forms.Button()
+        Me.IDListBox = New System.Windows.Forms.ListBox()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Barcode1
@@ -136,70 +140,103 @@ Partial Class IDGenerator
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.PictureBox2)
+        Me.GroupBox2.Controls.Add(Me.PreviewButton)
+        Me.GroupBox2.Controls.Add(Me.GenerateMultiIDButton)
         Me.GroupBox2.Controls.Add(Me.PrintButton)
-        Me.GroupBox2.Controls.Add(Me.PrintPreviewControl1)
         Me.GroupBox2.Controls.Add(Me.IDListBox)
         Me.GroupBox2.Location = New System.Drawing.Point(234, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(471, 226)
+        Me.GroupBox2.Size = New System.Drawing.Size(267, 226)
         Me.GroupBox2.TabIndex = 102
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Multiple"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackgroundImage = CType(resources.GetObject("PictureBox2.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox2.Location = New System.Drawing.Point(113, 19)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(133, 51)
+        Me.PictureBox2.TabIndex = 5
+        Me.PictureBox2.TabStop = False
+        '
+        'PreviewButton
+        '
+        Me.PreviewButton.Enabled = False
+        Me.PreviewButton.Location = New System.Drawing.Point(97, 120)
+        Me.PreviewButton.Name = "PreviewButton"
+        Me.PreviewButton.Size = New System.Drawing.Size(165, 23)
+        Me.PreviewButton.TabIndex = 4
+        Me.PreviewButton.Text = "Visualiser"
+        Me.PreviewButton.UseVisualStyleBackColor = True
+        '
+        'GenerateMultiIDButton
+        '
+        Me.GenerateMultiIDButton.Location = New System.Drawing.Point(97, 76)
+        Me.GenerateMultiIDButton.Name = "GenerateMultiIDButton"
+        Me.GenerateMultiIDButton.Size = New System.Drawing.Size(165, 38)
+        Me.GenerateMultiIDButton.TabIndex = 3
+        Me.GenerateMultiIDButton.Text = "Générer des IDs"
+        Me.GenerateMultiIDButton.UseVisualStyleBackColor = True
+        '
+        'PrintButton
+        '
+        Me.PrintButton.Enabled = False
+        Me.PrintButton.Location = New System.Drawing.Point(97, 149)
+        Me.PrintButton.Name = "PrintButton"
+        Me.PrintButton.Size = New System.Drawing.Size(165, 61)
+        Me.PrintButton.TabIndex = 2
+        Me.PrintButton.Text = "Imprimer"
+        Me.PrintButton.UseVisualStyleBackColor = True
         '
         'IDListBox
         '
         Me.IDListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.IDListBox.FormattingEnabled = True
+        Me.IDListBox.Items.AddRange(New Object() {"0123456789"})
         Me.IDListBox.Location = New System.Drawing.Point(6, 16)
         Me.IDListBox.Name = "IDListBox"
         Me.IDListBox.ScrollAlwaysVisible = True
         Me.IDListBox.SelectionMode = System.Windows.Forms.SelectionMode.None
-        Me.IDListBox.Size = New System.Drawing.Size(112, 197)
+        Me.IDListBox.Size = New System.Drawing.Size(85, 197)
         Me.IDListBox.TabIndex = 0
-        '
-        'PrintDialog1
-        '
-        Me.PrintDialog1.AllowCurrentPage = True
-        Me.PrintDialog1.AllowPrintToFile = False
-        Me.PrintDialog1.AllowSomePages = True
-        Me.PrintDialog1.Document = Me.PrintDocument1
-        Me.PrintDialog1.UseEXDialog = True
         '
         'PrintDocument1
         '
         Me.PrintDocument1.DocumentName = "NewIDTemplate"
         '
-        'PrintPreviewControl1
+        'PrintDialog1
         '
-        Me.PrintPreviewControl1.AutoZoom = False
-        Me.PrintPreviewControl1.Document = Me.PrintDocument1
-        Me.PrintPreviewControl1.Location = New System.Drawing.Point(124, 16)
-        Me.PrintPreviewControl1.Name = "PrintPreviewControl1"
-        Me.PrintPreviewControl1.Size = New System.Drawing.Size(341, 153)
-        Me.PrintPreviewControl1.TabIndex = 1
-        Me.PrintPreviewControl1.Zoom = 0.35R
+        Me.PrintDialog1.AllowPrintToFile = False
+        Me.PrintDialog1.Document = Me.PrintDocument1
+        Me.PrintDialog1.UseEXDialog = True
         '
-        'PrintButton
+        'PrintPreviewDialog1
         '
-        Me.PrintButton.Location = New System.Drawing.Point(213, 182)
-        Me.PrintButton.Name = "PrintButton"
-        Me.PrintButton.Size = New System.Drawing.Size(165, 31)
-        Me.PrintButton.TabIndex = 2
-        Me.PrintButton.Text = "Imprimer"
-        Me.PrintButton.UseVisualStyleBackColor = True
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Document = Me.PrintDocument1
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.ShowIcon = False
+        Me.PrintPreviewDialog1.Visible = False
         '
         'IDGenerator
         '
         Me.AcceptButton = Me.GenerateNewIDButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(714, 243)
+        Me.ClientSize = New System.Drawing.Size(514, 243)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(730, 282)
+        Me.MaximumSize = New System.Drawing.Size(530, 282)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(730, 282)
+        Me.MinimumSize = New System.Drawing.Size(530, 282)
         Me.Name = "IDGenerator"
         Me.ShowIcon = False
         Me.Text = "Générer de nouveaux IDs"
@@ -207,6 +244,7 @@ Partial Class IDGenerator
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -218,8 +256,11 @@ Partial Class IDGenerator
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents IDListBox As ListBox
-    Friend WithEvents PrintPreviewControl1 As PrintPreviewControl
     Friend WithEvents PrintDialog1 As PrintDialog
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
     Friend WithEvents PrintButton As Button
+    Friend WithEvents GenerateMultiIDButton As Button
+    Friend WithEvents PreviewButton As Button
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
+    Friend WithEvents PictureBox2 As PictureBox
 End Class
