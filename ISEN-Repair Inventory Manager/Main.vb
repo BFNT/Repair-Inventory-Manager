@@ -6,6 +6,7 @@ Public Class Main
     Dim idList As New ArrayList
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Logger.Load()
         CheckIfFirstRun()
         ListAllInv()
     End Sub
