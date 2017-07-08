@@ -13,7 +13,7 @@ Public Class Logger
     Public Sub Info(str As String)
         Dim objWriter As New StreamWriter(logFileName, True)
         Try
-            objWriter.WriteLineAsync("[INFO] " & str)
+            objWriter.WriteLineAsync("[" & DateTime.Now.ToString("HH:mm:ss") & "][INFO] " & str)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
@@ -23,7 +23,7 @@ Public Class Logger
     Public Sub Warn(str As String)
         Dim objWriter As New StreamWriter(logFileName, True)
         Try
-            objWriter.WriteLineAsync("[WARN] " & str)
+            objWriter.WriteLineAsync("[" & DateTime.Now.ToString("HH:mm:ss") & "][WARN] " & str)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
@@ -33,7 +33,7 @@ Public Class Logger
     Public Sub Critical(str As String)
         Dim objWriter As New StreamWriter(logFileName, True)
         Try
-            objWriter.WriteLineAsync("[CRITICAL] " & str)
+            objWriter.WriteLineAsync("[" & DateTime.Now.ToString("HH:mm:ss") & "][CRITICAL] " & str)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
