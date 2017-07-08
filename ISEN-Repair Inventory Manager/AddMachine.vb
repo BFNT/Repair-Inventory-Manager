@@ -39,6 +39,7 @@ Public Class AddMachine
                 If cmd.ExecuteNonQuery() <> 1 Then MsgBox("Erreur inconnue au niveau de la base de données !", 16, "Defaillance générale !") : End
                 con.Close()
             End Using
+            Main.log.Info("Computer " & NewIDBox.Text & " added")
             Main.StatusLabel.Text = "Ordinateur ajouté avec succés dans la base de données."
             Main.ListAllInv()
             Me.Close()

@@ -6,8 +6,10 @@ Public Class Main
 
     Dim manualID_selected As Boolean = False
     Dim idList As New ArrayList
+    Public log As New Logger
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        log.Load()
         CheckIfFirstRun()
         ListAllInv()
     End Sub
@@ -16,8 +18,9 @@ Public Class Main
     ''' Function to check if app is running for the first time
     ''' </summary>
     Private Sub CheckIfFirstRun()
+        log.Info("Check and load of database")
         If Not My.Computer.FileSystem.FileExists("db.sqlite") Then
-            If MsgBox("La base de données SQLite est introuvable ou inaccesible, souhaitez-vous la régénérer ?", 4161, "Base SQLite absente ou inacessible") = 1 Then
+            If MsgBox("La base de données SQLite est introuvable ou inaccessible, souhaitez-vous la régénérer ?", 4161, "Base SQLite absente ou inaccessible") = 1 Then
                 RegenerateDB()
             Else
                 End
@@ -108,6 +111,7 @@ Public Class Main
     ''' Construct the basic structure of SQLite DB
     ''' </summary>
     Private Sub RegenerateDB()
+        log.Warn("Reconstruct database...")
         Dim genesis_seq As String = "
             CREATE TABLE `computers_desc` (
 	        `id`	TEXT NOT NULL DEFAULT 0000000000 UNIQUE,
