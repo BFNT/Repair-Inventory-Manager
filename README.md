@@ -25,12 +25,12 @@ at least be able to record and manage the tracking of each computer individually
 - Starting with the 0.9 beta, the software will begin to have improvements after the return of users 
 to improve its ergonomics and use.
 - Version 1.0 will be released when all aspects of improvements have been properly completed. As the 
-minor versions (1.1, 1.2, 1.3,...), there will be additions of functions for the more pars mentioned 
-in the file TODO.md.
+minor versions (1.1, 1.2, 1.3,...), there will be additions of functions for the more parts mentioned 
+in the project V1.0 section.
 - (Uncertain) For version 2.0, the system will be completely revised to run on a SQL database and also 
 have 'online' support to use its smartphone for all tracking operations.
 - (Even more uncertain) For future versions, there will still be additions of functions that will be 
-for the most pars cited in the file TODO.md, with the possibility of adding a web platform allowing 
+for the most parts cited in the project V2.0 section, with the possibility of adding a web platform allowing 
 customers / schools to make a return On the hardware, inform us in case of breakdown, etc...
 
 ## Thanks
