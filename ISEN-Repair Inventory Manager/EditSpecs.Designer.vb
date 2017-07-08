@@ -34,7 +34,7 @@ Partial Class EditSpecs
         Me.OSCheck = New System.Windows.Forms.CheckBox()
         Me.HWCheck = New System.Windows.Forms.CheckBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.NewIDBox = New System.Windows.Forms.TextBox()
+        Me.IDBox = New System.Windows.Forms.TextBox()
         Me.GivedByBox = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.EtatBox = New System.Windows.Forms.TextBox()
@@ -168,7 +168,7 @@ Partial Class EditSpecs
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.NewIDBox)
+        Me.GroupBox2.Controls.Add(Me.IDBox)
         Me.GroupBox2.Controls.Add(Me.GivedByBox)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.EtatBox)
@@ -188,14 +188,14 @@ Partial Class EditSpecs
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Information et détails"
         '
-        'NewIDBox
+        'IDBox
         '
-        Me.NewIDBox.Location = New System.Drawing.Point(37, 16)
-        Me.NewIDBox.Name = "NewIDBox"
-        Me.NewIDBox.ReadOnly = True
-        Me.NewIDBox.Size = New System.Drawing.Size(79, 20)
-        Me.NewIDBox.TabIndex = 17
-        Me.NewIDBox.TabStop = False
+        Me.IDBox.Location = New System.Drawing.Point(37, 16)
+        Me.IDBox.Name = "IDBox"
+        Me.IDBox.ReadOnly = True
+        Me.IDBox.Size = New System.Drawing.Size(79, 20)
+        Me.IDBox.TabIndex = 17
+        Me.IDBox.TabStop = False
         '
         'GivedByBox
         '
@@ -361,7 +361,7 @@ Partial Class EditSpecs
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents NewIDBox As TextBox
+    Friend WithEvents IDBox As TextBox
     Friend WithEvents RAMCmbBox As ComboBox
     Friend WithEvents ProcArchCmbBox As ComboBox
     Friend WithEvents OSCmbBox As ComboBox
