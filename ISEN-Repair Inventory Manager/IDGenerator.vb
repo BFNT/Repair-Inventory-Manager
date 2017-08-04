@@ -58,6 +58,16 @@ generate:
     End Sub
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PrintDocument1.PrintPage
-
+        Dim PSize As PaperSize = Nothing
+        For Each PaperSizeContained As PaperSize In PrintDocument1.PrinterSettings.PaperSizes
+            If (PaperSizeContained.RawKind = PaperKind.A5) Then
+                PSize = PaperSizeContained
+                Exit For
+            End If
+        Next PaperSizeContained
+        If (PSize Is Nothing) Then
+            MsgBox("Oops! Can't find A5 paper for this printer.")
+            Exit Sub
+        End If
     End Sub
 End Class
