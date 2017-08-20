@@ -50,6 +50,8 @@ generate:
     End Sub
 
     Private Sub PreviewButton_Click(sender As Object, e As EventArgs) Handles PreviewButton.Click
+        'TO DO: concevoir le template pour impression
+
         PrintPreviewDialog1.ShowDialog()
     End Sub
 
