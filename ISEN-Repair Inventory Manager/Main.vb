@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SQLite
 Imports System.Text
+Imports System.IO
 
 Public Class Main
     Public Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
@@ -371,5 +372,13 @@ Public Class Main
         Dim tempStor As String = IDBox.Text
         IDBox.Text = Nothing
         IDBox.Text = tempStor
+    End Sub
+
+    Private Sub DBAccessToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DBAccessToolStripMenuItem.Click
+        Dim p As New ProcessStartInfo
+        p.FileName = "explorer.exe"
+        p.Arguments = Directory.GetCurrentDirectory
+        p.UseShellExecute = False
+        Process.Start(p)
     End Sub
 End Class
