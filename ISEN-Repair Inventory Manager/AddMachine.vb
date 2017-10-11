@@ -42,9 +42,12 @@ Public Class AddMachine
             Main.log.Info("Computer " & NewIDBox.Text & " added")
             Main.StatusLabel.Text = "Ordinateur ajouté avec succés dans la base de données."
             Main.ListAllInv()
+            Main.log.Info("Added computer " & NewIDBox.Text & " with success !")
             Me.Close()
         Catch ex As Exception
             Main.StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
+            Main.log.Critical("Error has been occur when saving data to DB !")
+            Main.log.Critical(ex.Message)
             MsgBox(ex.Message)
         End Try
     End Sub

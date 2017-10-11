@@ -53,7 +53,9 @@ Public Class Main
 
         Catch ex As Exception
             StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
-            MsgBox(ex.Message)
+            log.Critical("Error has been occur when connect to DB !")
+            log.Critical(ex.Message)
+            MsgBox("Error ! Check log file for details.")
         End Try
 
         Return True
@@ -150,9 +152,12 @@ Public Class Main
                 con.Close()
             End Using
             StatusLabel.Text = "La base SQLite a été reconstruite avec succès !"
+            log.Info("Base SQLite reconstructed.")
         Catch ex As Exception
             StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
-            MsgBox(ex.Message)
+            log.Critical("Error has been occur when reconstrut DB !")
+            log.Critical(ex.Message)
+            MsgBox("Error ! Check log file for details.")
         End Try
     End Sub
 
@@ -184,7 +189,9 @@ Public Class Main
             StatusLabel.Text = "Récupération avec succés de la base SQLite."
         Catch ex As Exception
             StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
-            MsgBox(ex.Message)
+            log.Critical("Error has been occur when retrieve data from DB !")
+            log.Critical(ex.Message)
+            MsgBox("Error ! Check log file for details.")
         End Try
     End Sub
 
@@ -257,7 +264,9 @@ Public Class Main
                 End Using
             Catch ex As Exception
                 StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
-                MsgBox(ex.Message)
+                log.Critical("Error has been occur when retrieve data from DB !")
+                log.Critical(ex.Message)
+                MsgBox("Error ! Check log file for details.")
             End Try
         End If
     End Sub
@@ -326,7 +335,9 @@ Public Class Main
             If HWCheck.Checked And OSCheck.Checked And DrvCheck.Checked And SoftCheck.Checked And ActivateCheck.Checked Then SendOutButton.Enabled = True Else SendOutButton.Enabled = False
         Catch ex As Exception
             StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
-            MsgBox(ex.Message)
+            log.Critical("Error has been occur when retrieve data from DB !")
+            log.Critical(ex.Message)
+            MsgBox("Error ! Check log file for details.")
         End Try
     End Sub
 
@@ -345,10 +356,13 @@ Public Class Main
                 con.Close()
             End Using
             StatusLabel.Text = "Ordinateur supprimé avec succès !"
+            log.Info("Delete computer " & IDBox.Text & " with success !")
             ListAllInv()
         Catch ex As Exception
             StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
-            MsgBox(ex.Message)
+            log.Critical("Error has been occur when saving data to DB !")
+            log.Critical(ex.Message)
+            MsgBox("Error ! Check log file for details.")
         End Try
     End Sub
 
