@@ -26,7 +26,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://jcs.bfnt.io/inv_manager/</InstallUrl>
+    <InstallUrl>https://repo.jcs.bfnt.io/inv_manager/</InstallUrl>
     <TargetCulture>fr</TargetCulture>
     <ProductName>ISEN-Repair Inventory Manager</ProductName>
     <PublisherName>JCS%27s Production</PublisherName>
@@ -35,7 +35,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>0.9.5.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -91,7 +91,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>D00CE50649372742555DAC702A1327003B99D37C</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>620A13A82ECD693F86DBAEDE2FA8737A6A18D351</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>ISEN-Repair Inventory Manager_TemporaryKey.pfx</ManifestKeyFile>
