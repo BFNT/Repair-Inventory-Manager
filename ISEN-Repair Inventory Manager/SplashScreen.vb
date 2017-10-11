@@ -20,7 +20,7 @@
 
         '    Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
 
-        Version.Text = String.Format("Version {0}.{1}.{2}", My.Application.Info.Version.Major, My.Application.Info.Version.Minor, My.Application.Info.Version.MajorRevision)
+        Version.Text = String.Format("Version {0}", My.Application.Info.Version)
 
         'Informations de copyright
         Copyright.Text = My.Application.Info.Copyright

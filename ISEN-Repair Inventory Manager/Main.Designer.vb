@@ -26,6 +26,7 @@ Partial Class Main
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.AddComputerToolMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GénérerDesIDsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DBAccessToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
@@ -60,7 +61,6 @@ Partial Class Main
         Me.OSBox = New System.Windows.Forms.TextBox()
         Me.ArchBox = New System.Windows.Forms.TextBox()
         Me.EditButton = New System.Windows.Forms.Button()
-        Me.DBAccessToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -88,6 +88,12 @@ Partial Class Main
         Me.GénérerDesIDsToolStripMenuItem.Name = "GénérerDesIDsToolStripMenuItem"
         Me.GénérerDesIDsToolStripMenuItem.Size = New System.Drawing.Size(100, 20)
         Me.GénérerDesIDsToolStripMenuItem.Text = "Générer des IDs"
+        '
+        'DBAccessToolStripMenuItem
+        '
+        Me.DBAccessToolStripMenuItem.Name = "DBAccessToolStripMenuItem"
+        Me.DBAccessToolStripMenuItem.Size = New System.Drawing.Size(73, 20)
+        Me.DBAccessToolStripMenuItem.Text = "DB Access"
         '
         'AboutToolMenuItem
         '
@@ -446,12 +452,6 @@ Partial Class Main
         Me.EditButton.TabStop = False
         Me.EditButton.Text = "Editer le suivi"
         Me.EditButton.UseVisualStyleBackColor = False
-        '
-        'DBAccessToolStripMenuItem
-        '
-        Me.DBAccessToolStripMenuItem.Name = "DBAccessToolStripMenuItem"
-        Me.DBAccessToolStripMenuItem.Size = New System.Drawing.Size(73, 20)
-        Me.DBAccessToolStripMenuItem.Text = "DB Access"
         '
         'Main
         '
