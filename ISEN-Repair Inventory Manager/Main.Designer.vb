@@ -24,8 +24,13 @@ Partial Class Main
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.QuitterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddComputerToolMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EnleverPCsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GénérerDesIDsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImporterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExporterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
@@ -60,7 +65,8 @@ Partial Class Main
         Me.OSBox = New System.Windows.Forms.TextBox()
         Me.ArchBox = New System.Windows.Forms.TextBox()
         Me.EditButton = New System.Windows.Forms.Button()
-        Me.DBAccessToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenBackupFile = New System.Windows.Forms.OpenFileDialog()
+        Me.SaveBackupFile = New System.Windows.Forms.SaveFileDialog()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -70,24 +76,56 @@ Partial Class Main
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddComputerToolMenuItem, Me.GénérerDesIDsToolStripMenuItem, Me.DBAccessToolStripMenuItem, Me.AboutToolMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuitterToolStripMenuItem, Me.AddComputerToolMenuItem, Me.EnleverPCsToolStripMenuItem, Me.GénérerDesIDsToolStripMenuItem, Me.DBToolStripMenuItem, Me.AboutToolMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(874, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
+        'QuitterToolStripMenuItem
+        '
+        Me.QuitterToolStripMenuItem.Name = "QuitterToolStripMenuItem"
+        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
+        Me.QuitterToolStripMenuItem.Text = "Quitter"
+        '
         'AddComputerToolMenuItem
         '
         Me.AddComputerToolMenuItem.Name = "AddComputerToolMenuItem"
-        Me.AddComputerToolMenuItem.Size = New System.Drawing.Size(93, 20)
-        Me.AddComputerToolMenuItem.Text = "Ajouter un PC"
+        Me.AddComputerToolMenuItem.Size = New System.Drawing.Size(81, 20)
+        Me.AddComputerToolMenuItem.Text = "Ajouter PCs"
+        '
+        'EnleverPCsToolStripMenuItem
+        '
+        Me.EnleverPCsToolStripMenuItem.Name = "EnleverPCsToolStripMenuItem"
+        Me.EnleverPCsToolStripMenuItem.Size = New System.Drawing.Size(80, 20)
+        Me.EnleverPCsToolStripMenuItem.Text = "Enlever PCs"
         '
         'GénérerDesIDsToolStripMenuItem
         '
         Me.GénérerDesIDsToolStripMenuItem.Name = "GénérerDesIDsToolStripMenuItem"
         Me.GénérerDesIDsToolStripMenuItem.Size = New System.Drawing.Size(100, 20)
         Me.GénérerDesIDsToolStripMenuItem.Text = "Générer des IDs"
+        '
+        'DBToolStripMenuItem
+        '
+        Me.DBToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImporterToolStripMenuItem, Me.ExporterToolStripMenuItem})
+        Me.DBToolStripMenuItem.Name = "DBToolStripMenuItem"
+        Me.DBToolStripMenuItem.Size = New System.Drawing.Size(34, 20)
+        Me.DBToolStripMenuItem.Text = "DB"
+        Me.DBToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'ImporterToolStripMenuItem
+        '
+        Me.ImporterToolStripMenuItem.Name = "ImporterToolStripMenuItem"
+        Me.ImporterToolStripMenuItem.Size = New System.Drawing.Size(120, 22)
+        Me.ImporterToolStripMenuItem.Text = "Importer"
+        '
+        'ExporterToolStripMenuItem
+        '
+        Me.ExporterToolStripMenuItem.Name = "ExporterToolStripMenuItem"
+        Me.ExporterToolStripMenuItem.Size = New System.Drawing.Size(120, 22)
+        Me.ExporterToolStripMenuItem.Text = "Exporter"
         '
         'AboutToolMenuItem
         '
@@ -447,11 +485,17 @@ Partial Class Main
         Me.EditButton.Text = "Editer le suivi"
         Me.EditButton.UseVisualStyleBackColor = False
         '
-        'DBAccessToolStripMenuItem
+        'OpenBackupFile
         '
-        Me.DBAccessToolStripMenuItem.Name = "DBAccessToolStripMenuItem"
-        Me.DBAccessToolStripMenuItem.Size = New System.Drawing.Size(73, 20)
-        Me.DBAccessToolStripMenuItem.Text = "DB Access"
+        Me.OpenBackupFile.DefaultExt = "sqlite"
+        Me.OpenBackupFile.Filter = "Fichier SQLite|*.sqlite"
+        Me.OpenBackupFile.Title = "Importer la DB"
+        '
+        'SaveBackupFile
+        '
+        Me.SaveBackupFile.DefaultExt = "sqlite"
+        Me.SaveBackupFile.Filter = "Fichier SQLite|*.sqlite"
+        Me.SaveBackupFile.Title = "Exporter la DB"
         '
         'Main
         '
@@ -525,5 +569,11 @@ Partial Class Main
     Friend WithEvents IDBox As MaskedTextBox
     Private WithEvents AddComputerToolMenuItem As ToolStripMenuItem
     Friend WithEvents GénérerDesIDsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DBAccessToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DBToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenBackupFile As OpenFileDialog
+    Friend WithEvents SaveBackupFile As SaveFileDialog
+    Friend WithEvents ImporterToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExporterToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents QuitterToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EnleverPCsToolStripMenuItem As ToolStripMenuItem
 End Class

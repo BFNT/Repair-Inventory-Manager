@@ -1,16 +1,21 @@
 ﻿Imports System.Data.SQLite
 Imports System.Text
 Imports System.IO
+Imports System.Environment
+Imports System.ComponentModel
 
 Public Class Main
-    Public Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+    'Public Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
     Dim manualID_selected As Boolean = False
     Dim idList As New ArrayList
     Public log As New Logger
+    Public Shared localAppData As String = GetFolderPath(SpecialFolder.LocalApplicationData) & "\InvManager\"
+    Public Shared dbLocFile As String = localAppData & "db.sqlite"
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         log.Load()
+        log.Info("Check and load of database")
         CheckIfFirstRun()
         ListAllInv()
     End Sub
@@ -19,8 +24,8 @@ Public Class Main
     ''' Function to check if app is running for the first time
     ''' </summary>
     Private Sub CheckIfFirstRun()
-        log.Info("Check and load of database")
-        If Not My.Computer.FileSystem.FileExists("db.sqlite") Then
+        If Not My.Computer.FileSystem.DirectoryExists(localAppData) Then My.Computer.FileSystem.CreateDirectory(localAppData)
+        If Not My.Computer.FileSystem.FileExists(dbLocFile) Then
             If MsgBox("La base de données SQLite est introuvable ou inaccessible, souhaitez-vous la régénérer ?", 4161, "Base SQLite absente ou inaccessible") = 1 Then
                 RegenerateDB()
             Else
@@ -38,7 +43,7 @@ Public Class Main
         Dim dtr As SQLiteDataReader
 
         Try
-            Using con As New SQLiteConnection("URI=file:db.sqlite")
+            Using con As New SQLiteConnection("URI=file:" & dbLocFile)
                 con.Open()
                 Using cmd As New SQLiteCommand(con)
                     cmd.CommandText = "SELECT * FROM computers_desc WHERE id=" & idToCheck & ";"
@@ -53,7 +58,9 @@ Public Class Main
 
         Catch ex As Exception
             StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
-            MsgBox(ex.Message)
+            log.Critical("Error has been occur when connect to DB !")
+            log.Critical(ex.Message)
+            MsgBox("Error ! Check log file for details.")
         End Try
 
         Return True
@@ -143,16 +150,19 @@ Public Class Main
 
         Try
             StatusLabel.Text = "Reconstructions de la base SQLite..."
-            Using con As New SQLiteConnection("URI=file:db.sqlite")
+            Using con As New SQLiteConnection("URI=file:" & dbLocFile)
                 con.Open()
                 Dim cmd As New SQLiteCommand(genesis_seq, con)
                 cmd.ExecuteNonQuery()
                 con.Close()
             End Using
             StatusLabel.Text = "La base SQLite a été reconstruite avec succès !"
+            log.Info("Base SQLite reconstructed.")
         Catch ex As Exception
             StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
-            MsgBox(ex.Message)
+            log.Critical("Error has been occur when reconstrut DB !")
+            log.Critical(ex.Message)
+            MsgBox("Error ! Check log file for details.")
         End Try
     End Sub
 
@@ -168,7 +178,7 @@ Public Class Main
         InvList.DisplayMember = "Nom"
         Try
             StatusLabel.Text = "Récupération des données depuis la base SQLite..."
-            Using con As New SQLiteConnection("URI=file:db.sqlite")
+            Using con As New SQLiteConnection("URI=file:" & dbLocFile)
                 con.Open()
                 Using cmd As New SQLiteCommand(con)
                     cmd.CommandText = "SELECT id,name FROM computers_desc;"
@@ -184,7 +194,9 @@ Public Class Main
             StatusLabel.Text = "Récupération avec succés de la base SQLite."
         Catch ex As Exception
             StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
-            MsgBox(ex.Message)
+            log.Critical("Error has been occur when retrieve data from DB !")
+            log.Critical(ex.Message)
+            MsgBox("Error ! Check log file for details.")
         End Try
     End Sub
 
@@ -222,7 +234,7 @@ Public Class Main
             Dim dtr As SQLiteDataReader
 
             Try
-                Using con As New SQLiteConnection("URI=file:db.sqlite")
+                Using con As New SQLiteConnection("URI=file:" & dbLocFile)
                     con.Open()
                     Using cmd As New SQLiteCommand(con)
                         cmd.CommandText = "SELECT * FROM computers_desc WHERE id='" & IDBox.Text & "';"
@@ -257,7 +269,9 @@ Public Class Main
                 End Using
             Catch ex As Exception
                 StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
-                MsgBox(ex.Message)
+                log.Critical("Error has been occur when retrieve data from DB !")
+                log.Critical(ex.Message)
+                MsgBox("Error ! Check log file for details.")
             End Try
         End If
     End Sub
@@ -270,7 +284,7 @@ Public Class Main
         Dim dtr As SQLiteDataReader
 
         Try
-            Using con As New SQLiteConnection("URI=file:db.sqlite")
+            Using con As New SQLiteConnection("URI=file:" & dbLocFile)
                 con.Open()
                 Using cmd As New SQLiteCommand(con)
                     cmd.CommandText = "SELECT * FROM computers_progress WHERE id='" & machineID & "';"
@@ -326,7 +340,9 @@ Public Class Main
             If HWCheck.Checked And OSCheck.Checked And DrvCheck.Checked And SoftCheck.Checked And ActivateCheck.Checked Then SendOutButton.Enabled = True Else SendOutButton.Enabled = False
         Catch ex As Exception
             StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
-            MsgBox(ex.Message)
+            log.Critical("Error has been occur when retrieve data from DB !")
+            log.Critical(ex.Message)
+            MsgBox("Error ! Check log file for details.")
         End Try
     End Sub
 
@@ -335,7 +351,7 @@ Public Class Main
 
         Try
             StatusLabel.Text = "Supression d'un ordinateur de la base de données..."
-            Using con As New SQLiteConnection("URI=file:db.sqlite")
+            Using con As New SQLiteConnection("URI=file:" & dbLocFile)
                 con.Open()
                 Dim cmd As New SQLiteCommand(con)
                 cmd.CommandText = "DELETE FROM computers_desc WHERE id='" & IDBox.Text & "';"
@@ -345,10 +361,13 @@ Public Class Main
                 con.Close()
             End Using
             StatusLabel.Text = "Ordinateur supprimé avec succès !"
+            log.Info("Delete computer " & IDBox.Text & " with success !")
             ListAllInv()
         Catch ex As Exception
             StatusLabel.Text = "Une erreur avec la base SQLite s'est produite !"
-            MsgBox(ex.Message)
+            log.Critical("Error has been occur when saving data to DB !")
+            log.Critical(ex.Message)
+            MsgBox("Error ! Check log file for details.")
         End Try
     End Sub
 
@@ -374,11 +393,42 @@ Public Class Main
         IDBox.Text = tempStor
     End Sub
 
-    Private Sub DBAccessToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DBAccessToolStripMenuItem.Click
-        Dim p As New ProcessStartInfo
-        p.FileName = "explorer.exe"
-        p.Arguments = Directory.GetCurrentDirectory
-        p.UseShellExecute = False
-        Process.Start(p)
+    Private Sub ExporterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExporterToolStripMenuItem.Click
+        SaveBackupFile.InitialDirectory() = GetFolderPath(SpecialFolder.Desktop)
+        SaveBackupFile.FileName() = "invMan_" & DateTime.Now.ToString("yyyy-MM-dd_HH.mm") & ".sqlite"
+        SaveBackupFile.ShowDialog()
+    End Sub
+
+    Private Sub SaveBackupFile_FileOk(sender As Object, e As CancelEventArgs) Handles SaveBackupFile.FileOk
+        Using src As FileStream = File.Open(dbLocFile, FileMode.Open)
+            src.CopyTo(SaveBackupFile.OpenFile)
+        End Using
+        log.Info("DB exporté avec succès")
+    End Sub
+
+    Private Sub ImporterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImporterToolStripMenuItem.Click
+        OpenBackupFile.InitialDirectory() = GetFolderPath(SpecialFolder.Desktop)
+        OpenBackupFile.ShowDialog()
+    End Sub
+
+    Private Sub OpenBackupFile_FileOk(sender As Object, e As CancelEventArgs) Handles OpenBackupFile.FileOk
+        If My.Computer.FileSystem.FileExists(dbLocFile) Then
+            If MsgBox("ATTENTION ! Ceci va écraser la base de donnée existante souhaitez-vous continuer ?", 292, "Overwrite") = 7 Then Exit Sub
+        End If
+
+        Using dest As FileStream = File.Open(dbLocFile, FileMode.Create)
+            OpenBackupFile.OpenFile.CopyTo(dest)
+        End Using
+        ListAllInv()
+        log.Info("DB importé avec succès")
+    End Sub
+
+    Private Sub QuitterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitterToolStripMenuItem.Click
+        If MsgBox("Souhaitez-vous faire une backup de la DB ?", 292, "Backup") = 7 Then End
+
+        If Not My.Computer.FileSystem.DirectoryExists(localAppData & "backups") Then My.Computer.FileSystem.CreateDirectory(localAppData & "backups")
+        File.Copy(dbLocFile, localAppData & "backups\db_" & DateTime.Now.ToString("yyyy-MM-dd_HH.mm") & ".bck")
+        log.Info("Backup de la DB")
+        End
     End Sub
 End Class
