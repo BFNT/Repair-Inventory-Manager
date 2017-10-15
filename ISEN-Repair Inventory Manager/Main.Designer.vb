@@ -36,8 +36,6 @@ Partial Class Main
         Me.StatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.InvList = New System.Windows.Forms.ListBox()
-        Me.SendOutButton = New System.Windows.Forms.Button()
-        Me.TrashButton = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -52,26 +50,12 @@ Partial Class Main
         Me.GivenByBox = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.EtatBox = New System.Windows.Forms.TextBox()
-        Me.HWCheck = New System.Windows.Forms.CheckBox()
-        Me.OSCheck = New System.Windows.Forms.CheckBox()
-        Me.DrvCheck = New System.Windows.Forms.CheckBox()
-        Me.SoftCheck = New System.Windows.Forms.CheckBox()
-        Me.ActivateCheck = New System.Windows.Forms.CheckBox()
-        Me.ComputerRepairGlobalProgress = New System.Windows.Forms.ProgressBar()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.MemBox = New System.Windows.Forms.TextBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.OSBox = New System.Windows.Forms.TextBox()
-        Me.ArchBox = New System.Windows.Forms.TextBox()
-        Me.EditButton = New System.Windows.Forms.Button()
         Me.OpenBackupFile = New System.Windows.Forms.OpenFileDialog()
         Me.SaveBackupFile = New System.Windows.Forms.SaveFileDialog()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -167,31 +151,6 @@ Partial Class Main
         Me.InvList.Size = New System.Drawing.Size(324, 316)
         Me.InvList.TabIndex = 1
         Me.InvList.TabStop = False
-        '
-        'SendOutButton
-        '
-        Me.SendOutButton.BackColor = System.Drawing.Color.Green
-        Me.SendOutButton.Enabled = False
-        Me.SendOutButton.Location = New System.Drawing.Point(701, 343)
-        Me.SendOutButton.Name = "SendOutButton"
-        Me.SendOutButton.Size = New System.Drawing.Size(156, 23)
-        Me.SendOutButton.TabIndex = 6
-        Me.SendOutButton.TabStop = False
-        Me.SendOutButton.Text = "A été livré"
-        Me.SendOutButton.UseVisualStyleBackColor = False
-        '
-        'TrashButton
-        '
-        Me.TrashButton.BackColor = System.Drawing.Color.Firebrick
-        Me.TrashButton.Enabled = False
-        Me.TrashButton.ForeColor = System.Drawing.Color.White
-        Me.TrashButton.Location = New System.Drawing.Point(361, 343)
-        Me.TrashButton.Name = "TrashButton"
-        Me.TrashButton.Size = New System.Drawing.Size(156, 23)
-        Me.TrashButton.TabIndex = 7
-        Me.TrashButton.TabStop = False
-        Me.TrashButton.Text = "A été jeté"
-        Me.TrashButton.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -297,7 +256,7 @@ Partial Class Main
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Location = New System.Drawing.Point(355, 28)
+        Me.GroupBox2.Location = New System.Drawing.Point(366, 169)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(508, 191)
         Me.GroupBox2.TabIndex = 3
@@ -342,149 +301,6 @@ Partial Class Main
         Me.EtatBox.TabIndex = 13
         Me.EtatBox.TabStop = False
         '
-        'HWCheck
-        '
-        Me.HWCheck.AutoSize = True
-        Me.HWCheck.Enabled = False
-        Me.HWCheck.Location = New System.Drawing.Point(7, 20)
-        Me.HWCheck.Name = "HWCheck"
-        Me.HWCheck.Size = New System.Drawing.Size(72, 17)
-        Me.HWCheck.TabIndex = 0
-        Me.HWCheck.TabStop = False
-        Me.HWCheck.Text = "Hardware"
-        Me.HWCheck.UseVisualStyleBackColor = True
-        '
-        'OSCheck
-        '
-        Me.OSCheck.AutoSize = True
-        Me.OSCheck.Enabled = False
-        Me.OSCheck.Location = New System.Drawing.Point(7, 43)
-        Me.OSCheck.Name = "OSCheck"
-        Me.OSCheck.Size = New System.Drawing.Size(44, 17)
-        Me.OSCheck.TabIndex = 1
-        Me.OSCheck.TabStop = False
-        Me.OSCheck.Text = "O.S"
-        Me.OSCheck.UseVisualStyleBackColor = True
-        '
-        'DrvCheck
-        '
-        Me.DrvCheck.AutoSize = True
-        Me.DrvCheck.Enabled = False
-        Me.DrvCheck.Location = New System.Drawing.Point(7, 67)
-        Me.DrvCheck.Name = "DrvCheck"
-        Me.DrvCheck.Size = New System.Drawing.Size(59, 17)
-        Me.DrvCheck.TabIndex = 2
-        Me.DrvCheck.TabStop = False
-        Me.DrvCheck.Text = "Drivers"
-        Me.DrvCheck.UseVisualStyleBackColor = True
-        '
-        'SoftCheck
-        '
-        Me.SoftCheck.AutoSize = True
-        Me.SoftCheck.Enabled = False
-        Me.SoftCheck.Location = New System.Drawing.Point(151, 67)
-        Me.SoftCheck.Name = "SoftCheck"
-        Me.SoftCheck.Size = New System.Drawing.Size(68, 17)
-        Me.SoftCheck.TabIndex = 3
-        Me.SoftCheck.TabStop = False
-        Me.SoftCheck.Text = "Software"
-        Me.SoftCheck.UseVisualStyleBackColor = True
-        '
-        'ActivateCheck
-        '
-        Me.ActivateCheck.AutoSize = True
-        Me.ActivateCheck.Enabled = False
-        Me.ActivateCheck.Location = New System.Drawing.Point(72, 67)
-        Me.ActivateCheck.Name = "ActivateCheck"
-        Me.ActivateCheck.Size = New System.Drawing.Size(73, 17)
-        Me.ActivateCheck.TabIndex = 4
-        Me.ActivateCheck.TabStop = False
-        Me.ActivateCheck.Text = "Activation"
-        Me.ActivateCheck.UseVisualStyleBackColor = True
-        '
-        'ComputerRepairGlobalProgress
-        '
-        Me.ComputerRepairGlobalProgress.ForeColor = System.Drawing.Color.SteelBlue
-        Me.ComputerRepairGlobalProgress.Location = New System.Drawing.Point(6, 90)
-        Me.ComputerRepairGlobalProgress.Name = "ComputerRepairGlobalProgress"
-        Me.ComputerRepairGlobalProgress.Size = New System.Drawing.Size(496, 23)
-        Me.ComputerRepairGlobalProgress.TabIndex = 5
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(85, 21)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(97, 13)
-        Me.Label6.TabIndex = 7
-        Me.Label6.Text = "Proc/Architecture :"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(248, 21)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(37, 13)
-        Me.Label7.TabIndex = 9
-        Me.Label7.Text = "RAM :"
-        '
-        'MemBox
-        '
-        Me.MemBox.Location = New System.Drawing.Point(291, 17)
-        Me.MemBox.Name = "MemBox"
-        Me.MemBox.ReadOnly = True
-        Me.MemBox.Size = New System.Drawing.Size(57, 20)
-        Me.MemBox.TabIndex = 10
-        Me.MemBox.TabStop = False
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.OSBox)
-        Me.GroupBox3.Controls.Add(Me.ArchBox)
-        Me.GroupBox3.Controls.Add(Me.MemBox)
-        Me.GroupBox3.Controls.Add(Me.Label7)
-        Me.GroupBox3.Controls.Add(Me.Label6)
-        Me.GroupBox3.Controls.Add(Me.ComputerRepairGlobalProgress)
-        Me.GroupBox3.Controls.Add(Me.ActivateCheck)
-        Me.GroupBox3.Controls.Add(Me.SoftCheck)
-        Me.GroupBox3.Controls.Add(Me.DrvCheck)
-        Me.GroupBox3.Controls.Add(Me.OSCheck)
-        Me.GroupBox3.Controls.Add(Me.HWCheck)
-        Me.GroupBox3.Location = New System.Drawing.Point(355, 219)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(508, 118)
-        Me.GroupBox3.TabIndex = 4
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Avancement"
-        '
-        'OSBox
-        '
-        Me.OSBox.Location = New System.Drawing.Point(57, 41)
-        Me.OSBox.Name = "OSBox"
-        Me.OSBox.ReadOnly = True
-        Me.OSBox.Size = New System.Drawing.Size(59, 20)
-        Me.OSBox.TabIndex = 13
-        '
-        'ArchBox
-        '
-        Me.ArchBox.Location = New System.Drawing.Point(188, 18)
-        Me.ArchBox.Name = "ArchBox"
-        Me.ArchBox.ReadOnly = True
-        Me.ArchBox.Size = New System.Drawing.Size(54, 20)
-        Me.ArchBox.TabIndex = 12
-        '
-        'EditButton
-        '
-        Me.EditButton.BackColor = System.Drawing.Color.Gold
-        Me.EditButton.Enabled = False
-        Me.EditButton.Location = New System.Drawing.Point(523, 343)
-        Me.EditButton.Name = "EditButton"
-        Me.EditButton.Size = New System.Drawing.Size(172, 23)
-        Me.EditButton.TabIndex = 8
-        Me.EditButton.TabStop = False
-        Me.EditButton.Text = "Editer le suivi"
-        Me.EditButton.UseVisualStyleBackColor = False
-        '
         'OpenBackupFile
         '
         Me.OpenBackupFile.DefaultExt = "sqlite"
@@ -502,10 +318,6 @@ Partial Class Main
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(874, 397)
-        Me.Controls.Add(Me.EditButton)
-        Me.Controls.Add(Me.TrashButton)
-        Me.Controls.Add(Me.SendOutButton)
-        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.StatusStrip1)
@@ -525,8 +337,6 @@ Partial Class Main
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -537,8 +347,6 @@ Partial Class Main
     Friend WithEvents StatusLabel As ToolStripStatusLabel
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents InvList As ListBox
-    Friend WithEvents SendOutButton As Button
-    Friend WithEvents TrashButton As Button
     Friend WithEvents AboutToolMenuItem As ToolStripMenuItem
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
@@ -550,22 +358,9 @@ Partial Class Main
     Friend WithEvents EmprunterName As TextBox
     Friend WithEvents SerieCheckBox As CheckBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents HWCheck As CheckBox
-    Friend WithEvents OSCheck As CheckBox
-    Friend WithEvents DrvCheck As CheckBox
-    Friend WithEvents SoftCheck As CheckBox
-    Friend WithEvents ActivateCheck As CheckBox
-    Friend WithEvents ComputerRepairGlobalProgress As ProgressBar
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents MemBox As TextBox
-    Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents EtatBox As TextBox
-    Friend WithEvents OSBox As TextBox
-    Friend WithEvents ArchBox As TextBox
     Friend WithEvents GivenByBox As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents EditButton As Button
     Friend WithEvents IDBox As MaskedTextBox
     Private WithEvents AddComputerToolMenuItem As ToolStripMenuItem
     Friend WithEvents GénérerDesIDsToolStripMenuItem As ToolStripMenuItem
