@@ -2,6 +2,7 @@
 Imports System.Text
 Imports System.IO
 Imports System.Environment
+Imports System.ComponentModel
 
 Public Class Main
     'Public Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
@@ -392,11 +393,15 @@ Public Class Main
         IDBox.Text = tempStor
     End Sub
 
-    Private Sub DBAccessToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DBAccessToolStripMenuItem.Click
-        Dim p As New ProcessStartInfo
-        p.FileName = "explorer.exe"
-        p.Arguments = localAppData
-        p.UseShellExecute = False
-        Process.Start(p)
+    Private Sub ExporterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExporterToolStripMenuItem.Click
+        SaveBackupFile.InitialDirectory() = GetFolderPath(SpecialFolder.Desktop)
+        SaveBackupFile.FileName() = "invMan_" & DateTime.Now.ToString("yyyy-MM-dd") & ".sqlite"
+        SaveBackupFile.ShowDialog()
+    End Sub
+
+    Private Sub SaveBackupFile_FileOk(sender As Object, e As CancelEventArgs) Handles SaveBackupFile.FileOk
+        Using src As FileStream = File.Open(dbLocFile, FileMode.Open)
+            src.CopyTo(SaveBackupFile.OpenFile)
+        End Using
     End Sub
 End Class
