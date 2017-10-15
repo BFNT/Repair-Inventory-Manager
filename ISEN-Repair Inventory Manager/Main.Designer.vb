@@ -24,7 +24,9 @@ Partial Class Main
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.QuitterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddComputerToolMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EnleverPCsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GénérerDesIDsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImporterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -65,8 +67,6 @@ Partial Class Main
         Me.EditButton = New System.Windows.Forms.Button()
         Me.OpenBackupFile = New System.Windows.Forms.OpenFileDialog()
         Me.SaveBackupFile = New System.Windows.Forms.SaveFileDialog()
-        Me.QuitterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EnleverPCsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -83,11 +83,23 @@ Partial Class Main
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
+        'QuitterToolStripMenuItem
+        '
+        Me.QuitterToolStripMenuItem.Name = "QuitterToolStripMenuItem"
+        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
+        Me.QuitterToolStripMenuItem.Text = "Quitter"
+        '
         'AddComputerToolMenuItem
         '
         Me.AddComputerToolMenuItem.Name = "AddComputerToolMenuItem"
         Me.AddComputerToolMenuItem.Size = New System.Drawing.Size(81, 20)
         Me.AddComputerToolMenuItem.Text = "Ajouter PCs"
+        '
+        'EnleverPCsToolStripMenuItem
+        '
+        Me.EnleverPCsToolStripMenuItem.Name = "EnleverPCsToolStripMenuItem"
+        Me.EnleverPCsToolStripMenuItem.Size = New System.Drawing.Size(80, 20)
+        Me.EnleverPCsToolStripMenuItem.Text = "Enlever PCs"
         '
         'GénérerDesIDsToolStripMenuItem
         '
@@ -475,25 +487,15 @@ Partial Class Main
         '
         'OpenBackupFile
         '
-        Me.OpenBackupFile.FileName = "OpenFileDialog1"
+        Me.OpenBackupFile.DefaultExt = "sqlite"
+        Me.OpenBackupFile.Filter = "Fichier SQLite|*.sqlite"
+        Me.OpenBackupFile.Title = "Importer la DB"
         '
         'SaveBackupFile
         '
         Me.SaveBackupFile.DefaultExt = "sqlite"
         Me.SaveBackupFile.Filter = "Fichier SQLite|*.sqlite"
         Me.SaveBackupFile.Title = "Exporter la DB"
-        '
-        'QuitterToolStripMenuItem
-        '
-        Me.QuitterToolStripMenuItem.Name = "QuitterToolStripMenuItem"
-        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
-        Me.QuitterToolStripMenuItem.Text = "Quitter"
-        '
-        'EnleverPCsToolStripMenuItem
-        '
-        Me.EnleverPCsToolStripMenuItem.Name = "EnleverPCsToolStripMenuItem"
-        Me.EnleverPCsToolStripMenuItem.Size = New System.Drawing.Size(80, 20)
-        Me.EnleverPCsToolStripMenuItem.Text = "Enlever PCs"
         '
         'Main
         '

@@ -395,7 +395,7 @@ Public Class Main
 
     Private Sub ExporterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExporterToolStripMenuItem.Click
         SaveBackupFile.InitialDirectory() = GetFolderPath(SpecialFolder.Desktop)
-        SaveBackupFile.FileName() = "invMan_" & DateTime.Now.ToString("yyyy-MM-dd") & ".sqlite"
+        SaveBackupFile.FileName() = "invMan_" & DateTime.Now.ToString("yyyy-MM-dd_HH.mm") & ".sqlite"
         SaveBackupFile.ShowDialog()
     End Sub
 
@@ -403,5 +403,23 @@ Public Class Main
         Using src As FileStream = File.Open(dbLocFile, FileMode.Open)
             src.CopyTo(SaveBackupFile.OpenFile)
         End Using
+        log.Info("DB exporté avec succès")
+    End Sub
+
+    Private Sub ImporterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImporterToolStripMenuItem.Click
+        OpenBackupFile.InitialDirectory() = GetFolderPath(SpecialFolder.Desktop)
+        OpenBackupFile.ShowDialog()
+    End Sub
+
+    Private Sub OpenBackupFile_FileOk(sender As Object, e As CancelEventArgs) Handles OpenBackupFile.FileOk
+        If My.Computer.FileSystem.FileExists(dbLocFile) Then
+            If MsgBox("ATTENTION ! Ceci va écraser la base de donnée existante souhaitez-vous continuer ?", 292, "Overwrite") = 7 Then Exit Sub
+        End If
+
+        Using dest As FileStream = File.Open(dbLocFile, FileMode.Create)
+            OpenBackupFile.OpenFile.CopyTo(dest)
+        End Using
+        ListAllInv()
+        log.Info("DB importé avec succès")
     End Sub
 End Class
