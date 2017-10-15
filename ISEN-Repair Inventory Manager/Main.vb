@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SQLite
 Imports System.Text
 Imports System.IO
+Imports System.Environment
 
 Public Class Main
     'Public Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
@@ -8,6 +9,8 @@ Public Class Main
     Dim manualID_selected As Boolean = False
     Dim idList As New ArrayList
     Public log As New Logger
+    Public Shared localAppData As String = GetFolderPath(SpecialFolder.LocalApplicationData) & "\InvManager\"
+    Public Shared dbLocFile As String = localAppData & "db.sqlite"
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         log.Load()
@@ -20,7 +23,8 @@ Public Class Main
     ''' Function to check if app is running for the first time
     ''' </summary>
     Private Sub CheckIfFirstRun()
-        If Not My.Computer.FileSystem.FileExists("db.sqlite") Then
+        If Not My.Computer.FileSystem.DirectoryExists(localAppData) Then My.Computer.FileSystem.CreateDirectory(localAppData)
+        If Not My.Computer.FileSystem.FileExists(dbLocFile) Then
             If MsgBox("La base de données SQLite est introuvable ou inaccessible, souhaitez-vous la régénérer ?", 4161, "Base SQLite absente ou inaccessible") = 1 Then
                 RegenerateDB()
             Else
@@ -38,7 +42,7 @@ Public Class Main
         Dim dtr As SQLiteDataReader
 
         Try
-            Using con As New SQLiteConnection("URI=file:db.sqlite")
+            Using con As New SQLiteConnection("URI=file:" & dbLocFile)
                 con.Open()
                 Using cmd As New SQLiteCommand(con)
                     cmd.CommandText = "SELECT * FROM computers_desc WHERE id=" & idToCheck & ";"
@@ -145,7 +149,7 @@ Public Class Main
 
         Try
             StatusLabel.Text = "Reconstructions de la base SQLite..."
-            Using con As New SQLiteConnection("URI=file:db.sqlite")
+            Using con As New SQLiteConnection("URI=file:" & dbLocFile)
                 con.Open()
                 Dim cmd As New SQLiteCommand(genesis_seq, con)
                 cmd.ExecuteNonQuery()
@@ -173,7 +177,7 @@ Public Class Main
         InvList.DisplayMember = "Nom"
         Try
             StatusLabel.Text = "Récupération des données depuis la base SQLite..."
-            Using con As New SQLiteConnection("URI=file:db.sqlite")
+            Using con As New SQLiteConnection("URI=file:" & dbLocFile)
                 con.Open()
                 Using cmd As New SQLiteCommand(con)
                     cmd.CommandText = "SELECT id,name FROM computers_desc;"
@@ -229,7 +233,7 @@ Public Class Main
             Dim dtr As SQLiteDataReader
 
             Try
-                Using con As New SQLiteConnection("URI=file:db.sqlite")
+                Using con As New SQLiteConnection("URI=file:" & dbLocFile)
                     con.Open()
                     Using cmd As New SQLiteCommand(con)
                         cmd.CommandText = "SELECT * FROM computers_desc WHERE id='" & IDBox.Text & "';"
@@ -279,7 +283,7 @@ Public Class Main
         Dim dtr As SQLiteDataReader
 
         Try
-            Using con As New SQLiteConnection("URI=file:db.sqlite")
+            Using con As New SQLiteConnection("URI=file:" & dbLocFile)
                 con.Open()
                 Using cmd As New SQLiteCommand(con)
                     cmd.CommandText = "SELECT * FROM computers_progress WHERE id='" & machineID & "';"
@@ -346,7 +350,7 @@ Public Class Main
 
         Try
             StatusLabel.Text = "Supression d'un ordinateur de la base de données..."
-            Using con As New SQLiteConnection("URI=file:db.sqlite")
+            Using con As New SQLiteConnection("URI=file:" & dbLocFile)
                 con.Open()
                 Dim cmd As New SQLiteCommand(con)
                 cmd.CommandText = "DELETE FROM computers_desc WHERE id='" & IDBox.Text & "';"
@@ -391,7 +395,7 @@ Public Class Main
     Private Sub DBAccessToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DBAccessToolStripMenuItem.Click
         Dim p As New ProcessStartInfo
         p.FileName = "explorer.exe"
-        p.Arguments = Directory.GetCurrentDirectory
+        p.Arguments = localAppData
         p.UseShellExecute = False
         Process.Start(p)
     End Sub

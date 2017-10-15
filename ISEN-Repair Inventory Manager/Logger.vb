@@ -3,10 +3,10 @@
 Public Class Logger
     'DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
 
-    Dim logFileName As String = "logs\" & DateTime.Now.ToString("yyyy-MM-dd") & ".txt"
+    Dim logFileName As String = Main.localAppData & "logs\" & DateTime.Now.ToString("yyyy-MM-dd") & ".txt"
 
     Public Sub Load()
-        If Not My.Computer.FileSystem.DirectoryExists("logs") Then My.Computer.FileSystem.CreateDirectory("logs")
+        If Not My.Computer.FileSystem.DirectoryExists(Main.localAppData & "logs") Then My.Computer.FileSystem.CreateDirectory(Main.localAppData & "logs")
         If Not My.Computer.FileSystem.FileExists(logFileName) Then File.WriteAllLines(logFileName, {"--------------------------------------------------------------", "------------------- LOG FILE - " & DateTime.Now.ToString("dd/MM/yyyy") & " -------------------", "--------------------------------------------------------------", "[" & DateTime.Now.ToString("HH:mm:ss") & "][INFO] Init software"})
     End Sub
 

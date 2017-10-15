@@ -30,7 +30,7 @@ Public Class AddMachine
 
         Try
             Main.StatusLabel.Text = "Tentative d'ajout de l'ordinateur à la base de données..."
-            Using con As New SQLiteConnection("URI=file:db.sqlite")
+            Using con As New SQLiteConnection("URI=file:" & Main.dbLocFile)
                 con.Open()
                 Dim cmd As New SQLiteCommand(con)
                 cmd.CommandText = "INSERT INTO computers_desc VALUES ('" & NewIDBox.Text & "','" & NewNameBox.Text & "'," & NewEtatBox.SelectedIndex & "," & CheckToNumeric(NewSerieCheckBox) & ",'" & Replace(NewDetailsBox.Text, "'", "_*_") & "',0,'N/A','" & NewGivenByBox.Text & "');"
