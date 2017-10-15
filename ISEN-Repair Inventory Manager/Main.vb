@@ -427,7 +427,7 @@ Public Class Main
         If MsgBox("Souhaitez-vous faire une backup de la DB ?", 292, "Backup") = 7 Then End
 
         If Not My.Computer.FileSystem.DirectoryExists(localAppData & "backups") Then My.Computer.FileSystem.CreateDirectory(localAppData & "backups")
-        File.Copy(dbLocFile, localAppData & "backups\" & DateTime.Now.ToString("yyyy-MM-dd_HH.mm") & ".sqlite")
+        File.Copy(dbLocFile, localAppData & "backups\db_" & DateTime.Now.ToString("yyyy-MM-dd_HH.mm") & ".bck")
         log.Info("Backup de la DB")
         End
     End Sub
