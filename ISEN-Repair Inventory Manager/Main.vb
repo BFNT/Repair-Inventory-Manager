@@ -3,7 +3,7 @@ Imports System.Text
 Imports System.IO
 
 Public Class Main
-    Public Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+    'Public Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
     Dim manualID_selected As Boolean = False
     Dim idList As New ArrayList
@@ -11,6 +11,7 @@ Public Class Main
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         log.Load()
+        log.Info("Check and load of database")
         CheckIfFirstRun()
         ListAllInv()
     End Sub
@@ -19,7 +20,6 @@ Public Class Main
     ''' Function to check if app is running for the first time
     ''' </summary>
     Private Sub CheckIfFirstRun()
-        log.Info("Check and load of database")
         If Not My.Computer.FileSystem.FileExists("db.sqlite") Then
             If MsgBox("La base de données SQLite est introuvable ou inaccessible, souhaitez-vous la régénérer ?", 4161, "Base SQLite absente ou inaccessible") = 1 Then
                 RegenerateDB()
