@@ -422,4 +422,13 @@ Public Class Main
         ListAllInv()
         log.Info("DB importé avec succès")
     End Sub
+
+    Private Sub QuitterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitterToolStripMenuItem.Click
+        If MsgBox("Souhaitez-vous faire une backup de la DB ?", 292, "Backup") = 7 Then End
+
+        If Not My.Computer.FileSystem.DirectoryExists(localAppData & "backups") Then My.Computer.FileSystem.CreateDirectory(localAppData & "backups")
+        File.Copy(dbLocFile, localAppData & "backups\" & DateTime.Now.ToString("yyyy-MM-dd_HH.mm") & ".sqlite")
+        log.Info("Backup de la DB")
+        End
+    End Sub
 End Class
