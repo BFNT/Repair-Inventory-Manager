@@ -10,6 +10,7 @@ Public Class AddMachine
         addMachine_IdForm = Nothing
 
         NewIDBox.Text = newID
+        If NewIDBox.Text = "" Then Me.Close()
         NewNameBox.Focus()
         NewEtatBox.SelectedIndex = 0
     End Sub

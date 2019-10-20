@@ -49,8 +49,10 @@ Public Class Main
                     cmd.CommandText = "SELECT * FROM computers_desc WHERE id=" & idToCheck & ";"
                     dtr = cmd.ExecuteReader()
                     While dtr.Read()
+                        con.Close()
                         Return True
                     End While
+                    con.Close()
                     Return False
                 End Using
                 con.Close()
@@ -401,7 +403,11 @@ Public Class Main
 
     Private Sub SaveBackupFile_FileOk(sender As Object, e As CancelEventArgs) Handles SaveBackupFile.FileOk
         Using src As FileStream = File.Open(dbLocFile, FileMode.Open)
-            src.CopyTo(SaveBackupFile.OpenFile)
+            Using dest As FileStream = SaveBackupFile.OpenFile
+                src.CopyTo(dest)
+                dest.Close()
+            End Using
+            src.Close()
         End Using
         log.Info("DB exporté avec succès")
     End Sub
@@ -418,6 +424,7 @@ Public Class Main
 
         Using dest As FileStream = File.Open(dbLocFile, FileMode.Create)
             OpenBackupFile.OpenFile.CopyTo(dest)
+            dest.Close()
         End Using
         ListAllInv()
         log.Info("DB importé avec succès")
